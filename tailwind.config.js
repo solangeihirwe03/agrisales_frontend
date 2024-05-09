@@ -6,8 +6,24 @@ export default {
       fontFamily: {
         roboto: ["Roboto", "sans - serif"],
       },
+      animation: {
+        'hover-from-bottom': 'hover-from-bottom 0.5s ease-in-out forwards',
+      },
+      keyframes: {
+        'hover-from-bottom': {
+          from: {
+            opacity: 0,
+            transform: 'translateY(100%)',
+          },
+          to: {
+            opacity: 1,
+            transform: 'translateY(0)',
+          },
     },
+  }
   },
   plugins: [],
+}
 };
+
 

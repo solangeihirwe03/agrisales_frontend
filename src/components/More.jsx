@@ -31,10 +31,10 @@ const More = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink onClick={showNavbar}>
-        <FontAwesomeSvgIcon icon={faBars} className="w-[20px]"/>
+        {open ? <NavLink onClick={showNavbar}>
+        <FontAwesomeSvgIcon icon={faBars} className="w-[20px] md:hidden"/>
         </NavLink>
-        {navBar && <Navigation/>}
+        :null}
       </li>
       <li>
         <NavLink
