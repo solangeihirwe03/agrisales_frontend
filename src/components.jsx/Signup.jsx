@@ -18,9 +18,7 @@ const Signup = () => {
               class="absolute inset-0 h-full w-full object-cover opacity-80"
             />
 
-            <div class="hidden lg:relative lg:block lg:p-12">
-              
-            </div>
+            <div class="hidden lg:relative lg:block lg:p-12"></div>
           </section>
 
           <main class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
@@ -43,15 +41,6 @@ const Signup = () => {
                     />
                   </svg>
                 </a>
-
-                <h1 class="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-                  Welcome to Squid 🦑
-                </h1>
-
-                <p class="mt-4 leading-relaxed text-gray-500">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Eligendi nam dolorum aliquam, quibusdam aperiam voluptatum.
-                </p>
               </div>
 
               <form action="#" class="mt-8 grid grid-cols-6 gap-6">
@@ -150,6 +139,7 @@ const Signup = () => {
                     <option value="">Select...</option>
                     <option value="option1">Farmer</option>
                     <option value="option2">Buyer</option>
+                    <option value="option3">Agronomist</option>
                   </select>
                 </div>
 
@@ -160,7 +150,7 @@ const Signup = () => {
 
                   <p class="mt-4 text-sm text-gray-500 sm:mt-0">
                     Already have an account?
-                    <a href="/Login" class="text-gray-700 underline">
+                    <a href="/Login" class="text-[#FF9C00] underline">
                       Log in
                     </a>
                     .

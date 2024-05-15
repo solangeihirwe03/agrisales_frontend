@@ -1,22 +1,46 @@
-import React from 'react'
-import image4 from "../../public/image5.jpeg"
+import React, { useState } from "react";
+import image4 from "../../public/image5.jpeg";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newErrors = {};
+
+    if (!email) {
+      newErrors.email = "Email is required";
+    }
+
+    if (!password) {
+      newErrors.password = "Password is required";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+    } else {
+     
+      window.location.href = "/shop";
+    }
+  };
+
   return (
     <div
-      className=" bg-cover bg-center h-screen p-64"
-      style={{ backgroundImage: "url('./image5.jpeg')" }}
+      className="bg-cover bg-center h-screen p-64"
+      style={{ backgroundImage: `url(${image4})` }}
     >
       <div className="mx-auto max-w-lg text-center">
-        <h1 className="text-2xl font-bold sm:text-3xl animate-bounce duration-200">Get started today!</h1>
-
-        {/* <p className="mt-4 text-gray-500">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero
-          nulla eaque error neque ipsa culpa autem, at itaque nostrum!
-        </p> */}
+        <h1 className="text-2xl font-bold sm:text-3xl animate-bounce duration-200">
+          Get started today!
+        </h1>
       </div>
 
-      <form action="#" className="mx-auto mb-0 mt-8 max-w-md space-y-4">
+      <form
+        onSubmit={handleSubmit}
+        className="mx-auto mb-0 mt-8 max-w-md space-y-4"
+      >
         <div>
           <label htmlFor="email" className="sr-only">
             Email
@@ -27,7 +51,12 @@ const Login = () => {
               type="email"
               className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               placeholder="Enter email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
+            {errors.email && (
+              <p className="text-[#FF9C00]  text-xs mt-1">{errors.email}</p>
+            )}
 
             <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
               <svg
@@ -58,7 +87,12 @@ const Login = () => {
               type="password"
               className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
+            {errors.password && (
+              <p className="text-[#FF9C00] text-xs mt-1">{errors.password}</p>
+            )}
 
             <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
               <svg
@@ -88,21 +122,26 @@ const Login = () => {
         <div className="flex items-center justify-between">
           <p className="text-sm text-white">
             No account?
-            <a className="underline" href="/Signup">
+            <a className="underline text-[#FF9C00]" href="/Signup">
               Sign up
+            </a>
+          </p>
+          <p className="text-sm text-white">
+            <a className="underline text-white" href="/Forgot">
+              Forgot password?
             </a>
           </p>
 
           <button
-            type="Login"
+            type="submit"
             className="inline-block rounded-lg bg-[#FF9C00] px-5 py-3 text-sm font-medium text-white"
           >
-           <a href='/Profile'>Log in</a> 
+            <a>Log in</a>
           </button>
         </div>
       </form>
     </div>
   );
-}
+};
 
-export default Login
+export default Login;

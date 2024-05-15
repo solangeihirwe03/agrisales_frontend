@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaCartShopping } from "react-icons/fa6";
+
 
 const products = [
   { src: "maize.jpg", alt: "maize", name: "Legumes", id: 1 },
@@ -25,7 +25,7 @@ const Product = () => {
           key={index}
           className="md:w-[20%] w-full flex flex-col items-center"
         >
-          <div className="" >
+          <div className="">
             <img
               src={product.src}
               alt={product.alt}
@@ -34,9 +34,9 @@ const Product = () => {
             <p className="flex justify-center">{product.name}</p>
           </div>
           <div className="flex gap-2">
-            {/* <FontAwesomeIcon icon={faCartShopping} className="w-[20px]" /> */}
+            <FaCartShopping  className="w-[20px]" />
             <Link to="/cart">
-              <p onClick={()=> addToCart(product.id)}>Add to Cart</p>
+              <p onClick={() => addToCart(product.id)}>Add to Cart</p>
             </Link>
           </div>
         </div>

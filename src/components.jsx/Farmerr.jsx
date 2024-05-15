@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-// import { FontAwesomeSvgIcon } from "react-fontawesome-svg-icon/FontAwesomeSvgIcon";
-// import {
-//   faUser,
-//   faBars,
-// } from "@fortawesome/free-solid-svg-icons/FontAwesomeSvgIcon";
+import { FaCartShopping } from "react-icons/fa6";
+import { IoPerson } from "react-icons/io5";
 
 const Farmerr = () => {
   const [navBar, setNavBar] = useState(false);
@@ -19,9 +16,13 @@ const Farmerr = () => {
         </p>
       </Link>
       <ul className="flex items-center gap-3">
-        <li>
+        <li className="flex space-x-4">
+          <NavLink to="/cart">
+            {<FaCartShopping className="w-[20px]" />}
+          </NavLink>
           <NavLink to="/Profile">
-            {/* <FontAwesomeSvgIcon icon={faUser} className="w-[20px]" /> */}
+            {<IoPerson className="w-[20px]" />
+ }
           </NavLink>
         </li>
         <li>
@@ -39,7 +40,7 @@ const Farmerr = () => {
             to="/Post"
             className="md:flex sm:hidden py-2 px-2 bg-[#45AB49] text-white font-medium rounded"
           >
-            Farmer
+            Customer
           </NavLink>
         </li>
       </ul>
