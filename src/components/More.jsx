@@ -1,9 +1,4 @@
 import { NavLink } from "react-router-dom";
-import {
-  faCartShopping,
-  faMagnifyingGlass,
-  faUser, faBars
-} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeSvgIcon } from "react-fontawesome-svg-icon";
 import { useState } from "react";
 import Navigation from "./Navigation";
