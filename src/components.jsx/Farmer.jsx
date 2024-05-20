@@ -1,14 +1,6 @@
 import React,{useState} from 'react'
 import { Link, NavLink } from 'react-router-dom';
 
-import {
-  faCartShopping,
-  faMagnifyingGlass,
-  faUser,
-  faBars,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeSvgIcon } from "react-fontawesome-svg-icon";
-
 const Header = () => {
      const [navBar, setNavBar] = useState(false);
      const showNavbar = () => {
@@ -34,16 +26,13 @@ const Header = () => {
         </li> */}
         <li>
           <NavLink to="/Profile">
-            <FontAwesomeSvgIcon icon={faUser} className="w-[20px]" />
+            
           </NavLink>
         </li>
         <li>
           {open ? (
             <NavLink onClick={showNavbar}>
-              <FontAwesomeSvgIcon
-                icon={faBars}
-                className="w-[20px] md:hidden"
-              />
+              
             </NavLink>
           ) : null}
         </li>

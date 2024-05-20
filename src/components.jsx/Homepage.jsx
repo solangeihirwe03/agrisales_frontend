@@ -6,7 +6,7 @@ const Homepage = () => {
     <>
       <div
         className="bg-cover bg-center h-screen p-64"
-        style={{ backgroundImage: "url('./image1.jpeg')", opacity: 0.9 }}
+        style={{ backgroundImage: "url('./image1.jpeg')", backgroundColor: 'rgba(0, 0, 0, 0)'}}
       >
         <h1 className=" text-base font-sans font-bold text-[#FF9C00] mt-4">
           WELCOME TO AGRISALES
