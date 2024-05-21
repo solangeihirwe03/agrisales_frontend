@@ -1,5 +1,5 @@
 import React from "react";
-import "./Profile.css";
+import "./App.css";
 import image6 from "../../public/image6.jpeg";
 
 

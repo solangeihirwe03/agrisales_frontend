@@ -47,7 +47,7 @@ const AboutUs = () => {
         </div>
         <div className="border border-transparent shadow-lg bg-white p-24">
           <h1 className="text-[#45AB49] font-bold">Our Mission</h1>
-          <p className="mt-8">
+          <p className="mt-8 font-semibold">
             There many variations of lorem ipsum available, but the majority
             have suffered alterration in some form, by injected humour, or
             randomised words which don't look even believable. If you are going
