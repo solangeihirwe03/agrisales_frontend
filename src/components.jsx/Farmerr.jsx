@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoPerson } from "react-icons/io5";
+import "./Farmerr.css"
 
 const Farmerr = () => {
   const [navBar, setNavBar] = useState(false);
@@ -17,24 +18,17 @@ const Farmerr = () => {
       </Link>
       <ul className="flex items-center gap-3">
         <li className="flex space-x-4">
-          <NavLink to="/cart">
-            {<FaCartShopping className="w-[20px]" />}
-          </NavLink>
-          <NavLink to="/Profile">
-            {<IoPerson className="w-[20px]" />
- }
-          </NavLink>
-        </li>
-        <li>
-          {open ? (
-            <NavLink onClick={showNavbar}>
-              {/* <FontAwesomeSvgIcon
-                icon={faBars}
-                className="w-[20px] md:hidden"
-              /> */}
+          <div className="flex justify-center items-center space-x-">
+            <NavLink to="/cart">
+              {<FaCartShopping className="w-[20px]" />}
             </NavLink>
-          ) : null}
+            <span className="bag-quantity">
+              <span>3</span>
+            </span>{" "}
+            <NavLink to="/Profile">{<IoPerson className="w-[20px]" />}</NavLink>
+          </div>
         </li>
+        <li>{open ? <NavLink onClick={showNavbar}></NavLink> : null}</li>
         <li>
           <NavLink
             to="/Post"
