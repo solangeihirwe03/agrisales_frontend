@@ -1,42 +1,41 @@
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./components.jsx/Login";
-import Signup from "./components.jsx/Signup";
-import Layout from "./components.jsx/Layoutt";
-import AboutUs from "./pages/AboutUs";
+import Layout from "./pages/Layoutt";
 import Product from "./pages/Product";
+import Cart from "./pages/Cart";
+import Profile from "./pages/Profile";
+import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
 import Search from "./pages/Search";
-import Cart from "./pages/Cart";
 import LearnMore from "./pages/LearnMore";
-import Forgot from "./components.jsx/Forgot";
-import Farmerr from "./components.jsx/Farmerr";
-import Profile from "./components.jsx/Profile";
-import Otpinput from "./components.jsx/Otpinput";
+import Forgot from "./pages/Forgot";
+import Farmerr from "./pages/Farmerr";
+import Otpinput from "./pages/Otpinput";
 
 
 function App() {
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<AboutUs />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/Signup" element={<Signup />} />
-          <Route path="/Forgot" element={<Forgot />} />
-          <Route path="/Otpinput" element={<Otpinput />} />
-          <Route path="/Farmerr" element={<Farmerr />} />
+    <Router>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Signup" element={<Signup />} />
+        <Route element={<Layoutfarm />}>
+          <Route path="/Farmer" element={<Farmer />} />
           <Route path="/Profile" element={<Profile />} />
-          <Route path="/" element={<Layout />}>
-            <Route path="/shop" element={<Product />} />
-            <Route path="/cart" element={<Cart />} />
-          </Route>
+        </Route>
+        <Route path="/shop" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/shop" element={<Product />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/learnmore" element={<LearnMore />} />
-        </Routes>
-      </Router>
-    </>
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
