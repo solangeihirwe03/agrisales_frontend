@@ -3,6 +3,7 @@ import about from "../../public/about3.jpg";
 
 const AboutUs = () => {
   return (
+
     <div>
       <div>
         <div
