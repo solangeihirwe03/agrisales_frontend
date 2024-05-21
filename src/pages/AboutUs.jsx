@@ -3,11 +3,6 @@ import about from "../../public/about3.jpg";
 
 const AboutUs = () => {
   return (
-<<<<<<< .merge_file_BIioFq
-    <div></div>
-  );
-}
-=======
     <div>
       <div>
         <div
@@ -63,6 +58,5 @@ const AboutUs = () => {
     </div>
   );
 };
->>>>>>> .merge_file_mJh6V2
 
 export default AboutUs;

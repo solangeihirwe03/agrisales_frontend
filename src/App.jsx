@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./components.jsx/Login";
-import Signup from "./components.jsx/Signup";
+import Login from './pages/Login'
+import Signup from "./pages/Signup";
 import Layout from "./components.jsx/Layoutt";
 import AboutUs from "./pages/AboutUs";
 import Product from "./pages/Product";
@@ -10,7 +10,7 @@ import Cart from "./pages/Cart";
 import LearnMore from "./pages/LearnMore";
 import Forgot from "./components.jsx/Forgot";
 import Farmerr from "./components.jsx/Farmerr";
-import Profile from "./components.jsx/Profile";
+import Profile from "./pages/Profile";
 import Otpinput from "./components.jsx/Otpinput";
 
 
