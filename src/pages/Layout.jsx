@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom'
 
 const Layout = () => {
   return (
-    <div className="w-full">
+    <div className='overflow-hidden'>
       <Header />
       <Outlet />
       <Footer />

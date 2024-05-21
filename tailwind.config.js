@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         roboto: ["Roboto", "sans - serif"],
+        urbanist: ["Urbanist", "sans-serif"]
       },
       animation: {
         'hover-from-bottom': 'hover-from-bottom 0.5s ease-in-out forwards',
