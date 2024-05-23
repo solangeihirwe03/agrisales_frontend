@@ -1,9 +1,8 @@
 import React from "react";
-import about from "../../public/about3.jpg";
+import about from "../../public/test.jpg";
 
 const AboutUs = () => {
   return (
-
     <div>
       <div>
         <div
@@ -14,7 +13,7 @@ const AboutUs = () => {
             backgroundPosition: "center",
             top: 0,
             left: 0,
-            filter: "blur(2px)",
+           
             // opacity: "0.8",
             height: "60%",
             width: "100%",
@@ -28,7 +27,7 @@ const AboutUs = () => {
             About Us
           </h1>
           <h3 className="flex justify-center">
-            <a href="/Front" className="hover:text-[#FF9C00]">
+            <a href="/" className="hover:text-[#FF9C00]">
               Home
             </a>
             / <span className="text-[#FF9C00]">About Us</span>

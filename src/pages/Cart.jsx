@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Footer from"./Footer";
 
 export default function Cart() {
   const [totalCart, setTotalCart] = useState(0);
@@ -47,6 +48,9 @@ export default function Cart() {
           </Link>
         </div>
       )}
+      
+       <Footer/>
     </div>
+   
   );
 }

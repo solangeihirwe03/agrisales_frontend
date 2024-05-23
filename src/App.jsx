@@ -1,26 +1,29 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./components.jsx/Login";
-import Signup from "./components.jsx/Signup";
-import Layout from "./components.jsx/Layoutt";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Layout from "./pages/Layoutt";
 import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
 import Search from "./pages/Search";
 import LearnMore from "./pages/LearnMore";
-import Forgot from "./components.jsx/Forgot";
-import Farmerr from "./components.jsx/Farmerr";
-import Profile from "./components.jsx/Profile";
-import Otpinput from "./components.jsx/Otpinput";
-
+import Forgot from "./pages/Forgot";
+import Farmerr from "./pages/Farmerr";
+import Profile from "./pages/Profile";
+import Otpinput from "./pages/Otpinput";
+import Product from "./pages/Product";
+import Cart from "./pages/Cart";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<AboutUs />} />
+          <Route path="/" element={<Home />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Forgot" element={<Forgot />} />
+          <Route path="/AboutUs" element={<AboutUs />} />
           <Route path="/Otpinput" element={<Otpinput />} />
           <Route path="/Farmerr" element={<Farmerr />} />
           <Route path="/Profile" element={<Profile />} />
