@@ -1,11 +1,8 @@
 import { NavLink } from "react-router-dom";
-import {
-  faCartShopping,
-  faMagnifyingGlass,
-  faUser, faBars
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeSvgIcon } from "react-fontawesome-svg-icon";
 import { useState } from "react";
+import { FaSearch, FaRegUser } from "react-icons/fa";
+import { FiShoppingCart } from "react-icons/fi";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import Navigation from "./Navigation";
 
 const More = () => {
@@ -17,22 +14,22 @@ const More = () => {
     <ul className="flex items-center gap-3">
       <li>
         <NavLink to="/search">
-          <FontAwesomeSvgIcon icon={faMagnifyingGlass} className="w-[20px]" />
+          <FaSearch fontSize={20}/>
         </NavLink>
       </li>
       <li>
         <NavLink to="/cart">
-          <FontAwesomeSvgIcon icon={faCartShopping} className="w-[20px]" />
+          <FiShoppingCart fontSize={20}/>
         </NavLink>
       </li>
       <li>
         <NavLink>
-          <FontAwesomeSvgIcon icon={faUser} className="w-[20px]" />
+          <FaRegUser fontSize={20}/>
         </NavLink>
       </li>
       <li>
         {open ? <NavLink onClick={showNavbar}>
-        <FontAwesomeSvgIcon icon={faBars} className="w-[20px] md:hidden"/>
+        <HiOutlineMenuAlt3 className="w-[20px] md:hidden"/>
         </NavLink>
         :null}
       </li>

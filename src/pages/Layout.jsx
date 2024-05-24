@@ -1,11 +1,11 @@
 import React from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Header from "./Header.jsx"
+import Footer from './Footer.jsx'
 import { Outlet } from 'react-router-dom'
 
 const Layout = () => {
   return (
-    <div className="w-full">
+    <div className="overflow-hidden">
       <Header />
       <Outlet />
       <Footer />
