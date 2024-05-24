@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom"
 import Header from "./Farmer"
 
-const LayoutFarm = () => {
+const Layout = () => {
   return (
     <div>
       <Header/>
@@ -11,4 +11,4 @@ const LayoutFarm = () => {
   )
 }
 
-export default LayoutFarm
+export default Layout

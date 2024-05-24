@@ -1,6 +1,7 @@
 import React from 'react'
 import image4 from "../../public/image5.jpeg"
 
+
 const Login = () => {
   return (
     <div
@@ -8,7 +9,9 @@ const Login = () => {
       style={{ backgroundImage: "url('./image5.jpeg')" }}
     >
       <div className="mx-auto max-w-lg text-center">
-        <h1 className="text-2xl font-bold sm:text-3xl animate-bounce duration-200">Get started today!</h1>
+        <h1 className="text-2xl font-bold sm:text-3xl animate-bounce duration-200">
+          Get started today!
+        </h1>
 
         {/* <p className="mt-4 text-gray-500">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero
@@ -93,11 +96,17 @@ const Login = () => {
             </a>
           </p>
 
+          <p className="text-sm text-white">
+            <a className="underline" href="/Forgot">
+              Forgot your password
+            </a>
+          </p>
+
           <button
             type="Login"
             className="inline-block rounded-lg bg-[#FF9C00] px-5 py-3 text-sm font-medium text-white"
           >
-           <a href='/Profile'>Log in</a> 
+            <a href="/Profile">Log in</a>
           </button>
         </div>
       </form>

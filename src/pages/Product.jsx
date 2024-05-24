@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch} from "react-redux";
-import { addToCart } from "../components.jsx/Store/slices/Cart-slice";
+import { addToCart } from "../pages/Store/slices/Cart-slice";
 import { useSelector } from "react-redux";
-import { removeFromCart } from "../components.jsx/Store/slices/Cart-slice";
+import { removeFromCart } from "../pages/Store/slices/Cart-slice";
 
 const products = [
   { src: "maize.jpg", alt: "maize", name: "Legumes", Price: "$2000", id: 1 },
