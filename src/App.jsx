@@ -14,6 +14,7 @@ import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import Header from "./pages/Header";
 import Footer from "./pages/Footer";
+import Shop from "./pages/Shop";
 function App() {
   return (
     <>
@@ -27,7 +28,7 @@ function App() {
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/Otpinput" element={<Otpinput />} />
             <Route path="/Profile" element={<Profile />} />
-            <Route path="/shop" element={<Product />} />
+            <Route path="/Product" element={<Product />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/Header" element={<Header />} />
             <Route path="/contact" element={<Contact />} />
@@ -35,7 +36,9 @@ function App() {
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/Footer" element={<Footer />} />
             <Route path="/learnmore" element={<LearnMore />} />
+           <Route path="/shop" element={<Shop />} />
           </Route>
+           
         </Routes>
       </Router>
     </>

@@ -1,7 +1,8 @@
-import React from 'react'
-import {Link} from "react-router-dom"
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { IoPerson } from "react-icons/io5";
+import { FaCartShopping } from "react-icons/fa6";
 
 const Header = () => {
   return (
@@ -21,16 +22,22 @@ const Header = () => {
               <NavLink to="/AboutUs" className={"hover:text-[#45AB49]"}>
                 About Us
               </NavLink>
-              <NavLink to="/Contact" className="hover:text-[#45AB49]">
-                Contact Us
-              </NavLink>
+
               <NavLink to="/Shop" className={"hover:text-[#45AB49]"}>
                 Shop
+              </NavLink>
+              <NavLink to="/Contact" className="hover:text-[#45AB49]">
+                Contact Us
               </NavLink>
 
               <NavLink to="" className={"hover:text-[#45AB49]"}>
                 {<IoPerson className="w-[20px]" />}
               </NavLink>
+
+              <NavLink to="/cart" className={"hover:text-[#45AB49]"}>
+                <FaCartShopping className="w-[20px]" />
+              </NavLink>
+
               <li>
                 <NavLink
                   to="/Login"
@@ -45,6 +52,6 @@ const Header = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Header
+export default Header;

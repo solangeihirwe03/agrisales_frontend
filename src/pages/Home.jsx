@@ -14,8 +14,8 @@ import profile3 from "../../public/profile3.jpg"
 const Home = () => {
   const rating = 5;
   return (
-    <div className="flex flex-col gap-80">
-      <div className="bg-[url(slider-01.jpg)] bg-cover w-full h-[90vh] flex flex-col justify-center pl-20 gap-8 bottom-0 left-0 right-0 transition duration-300 ease-in-out transform mb-16 py-12">
+    <div>
+      <div className="bg-[url(slider-01.jpg)] bg-cover w-full h-[90vh] flex flex-col justify-center pl-20 gap-8 bottom-0 left-0 right-0 transition duration-300 ease-in-out transform mb-16">
         <h2 className="text-3xl font-semibold text-[#FF9C00]">
           Welcome to AGRIsales
         </h2>
@@ -235,11 +235,11 @@ const Home = () => {
                   <p className="mt-4 text-gray-700">
                     I've been sourcing agricultural products for my farm for
                     years, but nothing compares to the quality and service I
-                    experienced with Agrisales. The knowledgeable staff guided
-                    me in choosing the right products for my soil and climate,
-                    making a noticeable difference in my farm's productivity. I
-                    highly recommend Agrisales for any farmer looking to enhance
-                    their operations.
+                    experienced with Agrisales.  The
+                    knowledgeable staff guided me in choosing the right products
+                    for my soil and climate, making a noticeable difference in
+                    my farm's productivity. I highly recommend Agrisales for any
+                    farmer looking to enhance their operations.
                   </p>
                 </blockquote>
 
@@ -252,6 +252,7 @@ const Home = () => {
                     />
 
                     <div>
+
                       <p className="mt-0.5 text-lg font-medium text-gray-900">
                         Christy Sarah
                       </p>
@@ -259,6 +260,7 @@ const Home = () => {
                   </div>
 
                   <p className="mt-4 text-gray-700">
+  
                     Their commitment to quality and customer satisfaction is
                     unmatched. I purchased a range of tools and equipment from
                     them, and the durability and efficiency of these products
@@ -277,6 +279,7 @@ const Home = () => {
                     />
 
                     <div>
+
                       <p className="mt-0.5 text-lg font-medium text-gray-900">
                         Desmond scott
                       </p>
@@ -284,11 +287,11 @@ const Home = () => {
                   </div>
 
                   <p className="mt-4 text-gray-700">
-                    The staff's expertise and willingness to assist with my
-                    queries were incredibly reassuring. Thanks to Agrisales, my
-                    farm is thriving, and I've seen a significant increase in
-                    both yield and quality of my produce. Agrisales is truly a
-                    customer's best friend.
+                     The staff's expertise and
+                    willingness to assist with my queries were incredibly
+                    reassuring. Thanks to Agrisales, my farm is thriving, and
+                    I've seen a significant increase in both yield and quality
+                    of my produce. Agrisales is truly a customer's best friend.
                   </p>
                 </blockquote>
               </div>
@@ -296,6 +299,7 @@ const Home = () => {
           </section>
         </div>
       </div>
+      
     </div>
   );
 };

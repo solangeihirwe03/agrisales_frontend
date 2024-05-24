@@ -17,8 +17,6 @@ const AboutUs = () => {
             backgroundPosition: "center",
             top: 0,
             left: 0,
-
-            // opacity: "0.8",
             height: "60%",
             width: "100%",
             zIndex: "-1",
