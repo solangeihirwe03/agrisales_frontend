@@ -8,6 +8,9 @@ import arrival3 from "../../public/arrival3.png";
 import arrival4 from "../../public/arrival4.png";
 import ReactStars from "react-rating-stars-component";
 import Footer from "./Footer"
+import profile1 from "../../public/profile1.jpg"
+import profile2 from "../../public/profile2.jpg"
+import profile3 from "../../public/profile3.jpg"
 
 const Home = () => {
   const rating = 5;
@@ -22,10 +25,20 @@ const Home = () => {
         <ul className="flex items-center gap-3">
           <li className="flex space-x-4">
             <div className="flex justify-center items-center space-x-8">
-              <NavLink to="/AboutUs">About Us</NavLink>
-              <NavLink to="/Shop">Shop</NavLink>
+              <NavLink to="/" className={"hover:text-[#FF9C00]"}>
+                Home
+              </NavLink>
+              <NavLink to="/AboutUs" className={"hover:text-[#FF9C00]"}>
+                About Us
+              </NavLink>
+              <NavLink to="/Contact" className="hover:text-[#FF9C00]">
+                Contact Us
+              </NavLink>
+              <NavLink to="/Shop" className={"hover:text-[#FF9C00]"}>
+                Shop
+              </NavLink>
 
-              <NavLink to="/Profile">
+              <NavLink to="" className={"hover:text-[#FF9C00]"}>
                 {<IoPerson className="w-[20px]" />}
               </NavLink>
               <li>
@@ -235,8 +248,182 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <div>
+          <section className="bg-white">
+            <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+              <h2 className="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+                Read trusted reviews from our customers
+              </h2>
+
+              <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
+                <blockquote className="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+                  <div className="flex items-center gap-4">
+                    <img
+                      alt=""
+                      src={profile1}
+                      className="size-14 rounded-full object-cover"
+                    />
+
+                    <div>
+                      {/* <div className="flex justify-center gap-0.5 text-green-500">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      </div> */}
+
+                      <p className="mt-0.5 text-lg font-medium text-gray-900">
+                        Saranda Scott
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="mt-4 text-gray-700">
+                    I've been sourcing agricultural products for my farm for
+                    years, but nothing compares to the quality and service I
+                    experienced with Agrisales.  The
+                    knowledgeable staff guided me in choosing the right products
+                    for my soil and climate, making a noticeable difference in
+                    my farm's productivity. I highly recommend Agrisales for any
+                    farmer looking to enhance their operations.
+                  </p>
+                </blockquote>
+
+                <blockquote className="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+                  <div className="flex items-center gap-4">
+                    <img
+                      alt=""
+                      src={profile2}
+                      className="size-14 rounded-full object-cover"
+                    />
+
+                    <div>
+
+                      <p className="mt-0.5 text-lg font-medium text-gray-900">
+                        Christy Sarah
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="mt-4 text-gray-700">
+  
+                    Their commitment to quality and customer satisfaction is
+                    unmatched. I purchased a range of tools and equipment from
+                    them, and the durability and efficiency of these products
+                    have exceeded my expectations. Agrisales has become my go-to
+                    source for all agricultural needs, and I couldn't be happier
+                    with the results.
+                  </p>
+                </blockquote>
+
+                <blockquote className="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+                  <div className="flex items-center gap-4">
+                    <img
+                      alt=""
+                      src={profile3}
+                      className="size-14 rounded-full object-cover"
+                    />
+
+                    <div>
+                      {/* <div className="flex justify-center gap-0.5 text-green-500">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      </div> */}
+
+                      <p className="mt-0.5 text-lg font-medium text-gray-900">
+                        Desmond scott
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="mt-4 text-gray-700">
+                     The staff's expertise and
+                    willingness to assist with my queries were incredibly
+                    reassuring. Thanks to Agrisales, my farm is thriving, and
+                    I've seen a significant increase in both yield and quality
+                    of my produce. Agrisales is truly a customer's best friend.
+                  </p>
+                </blockquote>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
