@@ -69,7 +69,7 @@ const Footer = () => {
         </div>
       </div>
       <div>
-        <div className="mt-8 border-gray-100 pt-8 flex justify-center bg-[#FF9C00] space-x-8 ">
+        <div className="mt-8 border-gray-100 pt-8 flex justify-center bg-[#d4a04d] space-x-8 ">
           <div className="sm:flex sm:justify-around">
             <p className="text-xs font-semibold text-black">
               &copy; 2022. Company Name. All rights reserved.

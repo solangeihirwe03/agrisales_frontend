@@ -7,6 +7,7 @@ import ab2 from "../../public/2 about.jpg";
 const AboutUs = () => {
   return (
     <div>
+
       <div>
         <div
           style={{
@@ -29,18 +30,7 @@ const AboutUs = () => {
           <h1 className="flex justify-center  text-white font-extrabold text-lg">
             About Us
           </h1>
-          <h3 className="flex justify-center">
-            <a
-              href="/"
-              className="hover:text-[#FF9C00] font-urbanist font-semibold"
-            >
-              Home
-            </a>
-            /{" "}
-            <span className="text-[#FF9C00] font-urbanist font-semibold text-sm">
-              About Us
-            </span>
-          </h3>
+          <h3 className="flex justify-center"></h3>
         </div>
       </div>
 
@@ -85,17 +75,7 @@ const AboutUs = () => {
               passage of Lorem Ipsum
             </p>
             <br />
-            <div
-              className="bg-white border rounded-lg"
-            >
-              <p className="font-bold">Agriculture & Foods</p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Mollitia quas in possimus aspernatur maiores nisi, ipsa eius
-                recusandae officia <br /> error dignissimos ex ut veritatis
-                reiciendis corporis fugit hic ab. Debitis?
-              </p>
-            </div>
+
             <br />
             <div className="bg-white  border rounded-lg">
               <p>Vegetables & Fruits</p>
@@ -121,8 +101,6 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };

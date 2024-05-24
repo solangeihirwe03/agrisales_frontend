@@ -40,43 +40,6 @@ const Contact = () => {
 
   return (
     <div>
-      <div className="font-bold flex justify-between px-[10%] py-4 items-center text-lg">
-        <Link>
-          <p className="text-4xl ">
-            <span className="text-[#45AB49]">AGRI</span>sales
-          </p>
-        </Link>
-        <ul className="flex items-center gap-3">
-          <li className="flex space-x-4">
-            <div className="flex justify-center items-center space-x-8">
-              <NavLink to="/" className={"hover:text-[#FF9C00]"}>
-                Home
-              </NavLink>
-              <NavLink to="/AboutUs" className={"hover:text-[#FF9C00]"}>
-                About Us
-              </NavLink>
-              <NavLink to="/Contact" className="text-[#FF9C00]">
-                Contact Us
-              </NavLink>
-              <NavLink to="/Shop" className={"hover:text-[#FF9C00]"}>
-                Shop
-              </NavLink>
-
-              <NavLink to="" className={"hover:text-[#FF9C00]"}>
-                {<IoPerson className="w-[20px]" />}
-              </NavLink>
-              <li>
-                <NavLink
-                  to="/Login"
-                  className="md:flex  py-2 px-2 bg-[#FF9C00] text-white font-medium rounded"
-                >
-                  Login
-                </NavLink>
-              </li>
-            </div>
-          </li>
-        </ul>
-      </div>
       <h1 className="text-[#FF9C00] font-bold my-3 ml-[45rem] -mb-[3rem] text-2xl">
         Contact <span className="animate-pulse ">📞</span> us
       </h1>
@@ -90,9 +53,9 @@ const Contact = () => {
               <GrLocation />
             </div>
             <div className="font-bold">
-              Kacyiru, Kigali Rwanda
+              <span className="text-white">Kacyiru, Kigali Rwanda</span>
               <br />
-              Impact Center
+              <span className="text-green-500">Impact Center</span>
             </div>
           </div>
           <div className="flex ml-[3rem] font-bold gap-4 p-4">
@@ -100,7 +63,7 @@ const Contact = () => {
               <MdOutlinePhonelinkRing />
             </div>
             <div>
-              Let's Talk
+              <span className="text-white">Let's Talk</span>
               <br />
               <span className="text-green-500">+250783059629</span>
             </div>
@@ -110,7 +73,7 @@ const Contact = () => {
               <MdMarkEmailRead />
             </div>
             <div>
-              General Support
+              <span className="text-white">General Support</span>
               <br />
               <span className="text-green-500">agrisales@gmail.com</span>
             </div>
@@ -152,7 +115,6 @@ const Contact = () => {
           </form>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
