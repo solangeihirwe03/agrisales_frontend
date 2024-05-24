@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import AboutUs from "./AboutUs";
+import Navigation from "../components/Navigation";
 
 const Home = () => {
   return (
-    <div>
-      <div className="bg-[url(slider-01.jpg)] bg-cover w-full h-[90vh] flex flex-col justify-center pl-20 gap-8 bottom-0 left-0 right-0 transition duration-300 ease-in-out transform mb-16">
+    <div className="flex flex-col gap-80">
+      <div className="bg-[url(slider-01.jpg)] bg-cover w-full h-[90vh] flex flex-col justify-center pl-20 gap-8 bottom-0 left-0 right-0 transition duration-300 ease-in-out transform mb-16 py-12">
         <h2 className="text-3xl font-semibold text-[#FF9C00]">
           Welcome to Agrisales
         </h2>

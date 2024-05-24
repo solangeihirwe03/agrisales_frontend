@@ -1,14 +1,6 @@
 import React,{useState} from 'react'
 import { Link, NavLink } from 'react-router-dom';
 
-import {
-  faCartShopping,
-  faMagnifyingGlass,
-  faUser,
-  faBars,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeSvgIcon } from "react-fontawesome-svg-icon";
-
 const Header = () => {
      const [navBar, setNavBar] = useState(false);
      const showNavbar = () => {
