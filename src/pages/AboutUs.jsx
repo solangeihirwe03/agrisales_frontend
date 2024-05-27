@@ -3,11 +3,22 @@ import about from "../../public/test.jpg";
 import Footer from "./Footer";
 import ab1 from "../../public/1 about.jpg";
 import ab2 from "../../public/2 about.jpg";
+import { useSpring, animated } from "react-spring";
+import soja from "../../public/Soja.jpg";
 
 const AboutUs = () => {
+
+  const Number = ({ n }) => {
+    const { number } = useSpring({
+      from: { number: 0 },
+      number: n,
+      delay: 600,
+      config: { mass: 1, tension: 20, friction: 10 },
+    });
+    return <animated.div>{number.to((n) => n.toFixed(0))}</animated.div>;
+  };
   return (
     <div>
-
       <div>
         <div
           style={{
@@ -57,7 +68,33 @@ const AboutUs = () => {
             </p>
           </div>
         </div>
-        <div className="my-[8rem] flex gap-[4rem]">
+        <div
+          style={{
+            backgroundImage: `url(${soja})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            top: 0,
+            left: 0,
+            height: "80%",
+            width: "100%",
+          }}
+          className="  flex justify-around text-2xl font-bold text-white p-24 my-[8rem]"
+        >
+          <div>
+            <Number n={1500} />
+            <h4 className="text-white"> Satisfied Clients</h4>
+          </div>
+          <div>
+            <Number n={2000} />
+            <h4 className="text-white">Our products</h4>
+          </div>
+          <div>
+            <Number n={1200} />
+            <h4 className="text-white">Awards Wining</h4>
+          </div>
+        </div>
+        <div className="my-[12rem] flex gap-[8rem]">
           <div className=" w-[40rem]">
             <p className="text-orange-400 font-bold mb-5 text-2xl">
               WHY CHOOSE US{" "}

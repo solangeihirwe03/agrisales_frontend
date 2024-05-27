@@ -59,10 +59,10 @@ const recentOrderData = [
 
 const RecentOrder = () => {
   return (
-    <div className="bg-white px-4 pt-3 pb-4 rounded-sm border border-gray-200 flex-1">
+    <div className="bg-white px-4 pt-3 pb-4 rounded-sm border border-gray-200 flex-1 w-full h-[100vh]">
       <strong>Recent orders</strong>
       <div className="mt-3">
-        <table className="w-full text-gray-700">
+        <table className="w-full text-gray-700 h-full">
           <thead>
             <tr>
               <td>Id</td>
