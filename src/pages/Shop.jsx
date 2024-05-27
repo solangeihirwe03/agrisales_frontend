@@ -14,6 +14,23 @@ import ReactStars from "react-rating-stars-component";
 import { FaCartShopping } from "react-icons/fa6";
 
 const Shop = () => {
+  const handleFetch = async () => {
+    await axios({
+      method: "GET",
+      url: "https://agri-sales-backend-7.onrender.com/api/agri-sales/products/productList",
+    })
+      .then((response) => {
+        console.log(response);
+        // setHarvest(response.data.getProduct);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    handleFetch();
+  }, []);
   const rating = 5;
   return (
     <>
