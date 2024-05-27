@@ -15,6 +15,7 @@ import Home from "./pages/Home";
 import Header from "./pages/Header";
 import Footer from "./pages/Footer";
 import Shop from "./pages/Shop";
+import Admin from "./pages/Admin";
 function App() {
   return (
     <>
@@ -37,6 +38,7 @@ function App() {
             <Route path="/Footer" element={<Footer />} />
             <Route path="/learnmore" element={<LearnMore />} />
            <Route path="/shop" element={<Shop />} />
+           <Route path="/admin" element={<Admin/>}/>
           </Route>
            
         </Routes>
