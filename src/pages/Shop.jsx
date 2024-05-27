@@ -21,7 +21,7 @@ const Shop = () => {
     })
       .then((response) => {
         console.log(response);
-        // setHarvest(response.data.getProduct);
+        setHarvest(response.data.getProduct);
       })
       .catch((error) => {
         console.log(error);
