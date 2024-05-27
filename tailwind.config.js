@@ -21,7 +21,7 @@ export default {
             transform: "translateY(0)",
           },
           backgroundImage: {
-            myBackground: `url('./public/slider-01.jpg')`, // Replace with your image name
+            myBackground: `url('./slider-01.jpg')`, // Replace with your image name
           },
         },
       },
