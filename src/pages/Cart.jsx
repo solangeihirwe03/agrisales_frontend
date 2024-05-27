@@ -45,7 +45,7 @@ export default function Cart() {
               Your Cart is Empty
             </h1>
             <Link to="/Shop">
-              <button className="bg-red-950 text-white border-2 rounded-lg font-bold p-4">
+              <button className="bg-[#45AB490] text-white border-2 rounded-lg font-bold p-4">
                 SHOP NOW
               </button>
             </Link>
