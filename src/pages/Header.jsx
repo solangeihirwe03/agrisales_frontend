@@ -30,7 +30,7 @@ const Header = () => {
                 Contact Us
               </NavLink>
 
-              <NavLink to="" className={"hover:text-[#45AB49]"}>
+              <NavLink to="/Product" className={"hover:text-[#45AB49]"}>
                 {<IoPerson className="w-[20px]" />}
               </NavLink>
 

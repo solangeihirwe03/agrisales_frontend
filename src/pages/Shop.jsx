@@ -10,6 +10,9 @@ import s2 from "../../public/s2.png";
 import s3 from "../../public/s3.png";
 import s4 from "../../public/s4.png";
 import s5 from "../../public/s5.png";
+import eggs from "../../public/eggs.jpg";
+import apples from "../../public/apples.png";
+import banana from "../../public/banana.jpg";
 import ReactStars from "react-rating-stars-component";
 import { FaCartShopping } from "react-icons/fa6";
 import axios from "axios";
@@ -19,22 +22,22 @@ const Shop = () => {
   const rating = 5;
 
   
-const handleFetch = async()=>{
-  await axios({
-    method: "GET",
-    url: "https://agri-sales-backend-7.onrender.com/api/agri-sales/products/productList",
+// const handleFetch = async()=>{
+//   await axios({
+//     method: "GET",
+//     url: "https://agri-sales-backend-7.onrender.com/api/agri-sales/products/productList",
     
-  }).then((response)=>{
-    console.log(response.data.getProduct);
-    setHarvest(response.data.getProduct);
-  }).catch((error)=>{
-    console.log(error);
-  })
-}
+//   }).then((response)=>{
+//     console.log(response.data.getProduct);
+//     setHarvest(response.data.getProduct);
+//   }).catch((error)=>{
+//     console.log(error);
+//   })
+// }
 
-useEffect(()=>{
-  handleFetch();
-}, [])
+// useEffect(()=>{
+//   handleFetch();
+// }, [])
  
   return (
     <>
@@ -121,7 +124,7 @@ useEffect(()=>{
         </div>
 
         <div className="flex flex-wrap gap-4 justify-center p-4">
-          {harvests.map((harvest) => (
+          {/* {harvests.map((harvest) => (
             <div key={harvest.id} className="flex flex-wrap w-[22%]">
               <img
                 src={harvest.image.url}
@@ -132,8 +135,8 @@ useEffect(()=>{
               <p>${harvest.price}</p>
               <p>{harvest.productInstock}</p>
             </div>
-          ))}
-          {/* <a
+          ))} */}
+          <a
             href="#"
             className="block rounded-lg p-4 shadow-sm shadow-indigo-100"
           >
@@ -344,7 +347,7 @@ useEffect(()=>{
           >
             <img
               alt=""
-              src={s1}
+              src={eggs}
               className="h-56 w-full rounded-md object-cover  transition-transform duration-300 transform hover:scale-110"
             />
 
@@ -360,7 +363,7 @@ useEffect(()=>{
                   />
                 </div>
                 <div className="flex justify-center">
-                  <dd className="font-medium">Carrots</dd>
+                  <dd className="font-medium">Eggs</dd>
                 </div>
                 <div className="flex justify-center">
                   <dt className="sr-only">Price</dt>
@@ -386,7 +389,7 @@ useEffect(()=>{
           >
             <img
               alt=""
-              src={s4}
+              src={apples}
               className="h-56 w-full rounded-md object-cover  transition-transform duration-300 transform hover:scale-110"
             />
 
@@ -404,7 +407,7 @@ useEffect(()=>{
                 <div className="flex justify-center">
                   <dt className="sr-only">Address</dt>
 
-                  <dd className="font-medium">Citrus</dd>
+                  <dd className="font-medium">Apples</dd>
                 </div>
                 <div className="flex justify-center">
                   <dt className="sr-only">Price</dt>
@@ -430,7 +433,7 @@ useEffect(()=>{
           >
             <img
               alt=""
-              src={s3}
+              src={banana}
               className="h-56 w-full rounded-md object-cover transition-transform duration-300 transform hover:scale-110"
             />
 
@@ -448,7 +451,7 @@ useEffect(()=>{
                 <div className="flex justify-center">
                   <dt className="sr-only">Address</dt>
 
-                  <dd className="font-medium">Organic Brocoli</dd>
+                  <dd className="font-medium">Banana</dd>
                 </div>
                 <div className="flex justify-center">
                   <dt className="sr-only">Price</dt>
@@ -466,7 +469,7 @@ useEffect(()=>{
 
               <div className="mt-6 flex items-center gap-8 text-xs"></div>
             </div>
-          </a> */}
+          </a>
         </div>
       </div>
     </>
