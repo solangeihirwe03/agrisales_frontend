@@ -18,7 +18,7 @@ import { FaCartShopping } from "react-icons/fa6";
 
 const Shop = () => {
   const [harvests, setHarvest] = useState([]);
-
+  const rating = 5;
   
 // const handleFetch = async()=>{
 //   await axios({
