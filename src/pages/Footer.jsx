@@ -72,7 +72,7 @@ const Footer = () => {
       </div>
       <div className="mt-8 border-t border-gray-100 pt-8 flex flex-col sm:flex-row justify-center sm:justify-between bg-[#FF9C00] px-4 py-4">
         <p className="text-xs font-semibold text-black text-center sm:text-left">
-          &copy; 2022. Company Name. All rights reserved.
+          &copy; 2024. AGRIsales. All rights reserved.
         </p>
         <ul className="mt-4 sm:mt-0 flex flex-wrap justify-center gap-4 text-xs sm:justify-end">
           <li>

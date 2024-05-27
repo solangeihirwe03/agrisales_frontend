@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import shop from "../../public/shop.jpg";
 import shop1 from "../../public/shop1.png";
 import shop2 from "../../public/shop2.png";
@@ -12,9 +12,30 @@ import s4 from "../../public/s4.png";
 import s5 from "../../public/s5.png";
 import ReactStars from "react-rating-stars-component";
 import { FaCartShopping } from "react-icons/fa6";
+import axios from "axios";
 
 const Shop = () => {
+  const [harvests, setHarvest] = useState([]);
   const rating = 5;
+
+  
+const handleFetch = async()=>{
+  await axios({
+    method: "GET",
+    url: "https://agri-sales-backend-7.onrender.com/api/agri-sales/products/productList",
+    
+  }).then((response)=>{
+    console.log(response.data.getProduct);
+    setHarvest(response.data.getProduct);
+  }).catch((error)=>{
+    console.log(error);
+  })
+}
+
+useEffect(()=>{
+  handleFetch();
+}, [])
+ 
   return (
     <>
       <div className="flex flex-col">
@@ -100,7 +121,19 @@ const Shop = () => {
         </div>
 
         <div className="flex flex-wrap gap-4 justify-center p-4">
-          <a
+          {harvests.map((harvest) => (
+            <div key={harvest.id} className="flex flex-wrap w-[22%]">
+              <img
+                src={harvest.image.url}
+                width={400} height={400}
+              />
+              <p>{harvest.productName}</p>
+              <p>{harvest.description}</p>
+              <p>${harvest.price}</p>
+              <p>{harvest.productInstock}</p>
+            </div>
+          ))}
+          {/* <a
             href="#"
             className="block rounded-lg p-4 shadow-sm shadow-indigo-100"
           >
@@ -433,7 +466,7 @@ const Shop = () => {
 
               <div className="mt-6 flex items-center gap-8 text-xs"></div>
             </div>
-          </a>
+          </a> */}
         </div>
       </div>
     </>

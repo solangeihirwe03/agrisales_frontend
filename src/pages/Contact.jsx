@@ -28,6 +28,7 @@ const Contact = () => {
       .then(
         () => {
           console.log("SUCCESS!");
+          alert("Success!");
         },
         (error) => {
           console.log("FAILED...", error.text);
@@ -109,7 +110,7 @@ const Contact = () => {
               required
               className="border border-gray-300 p-2 rounded mb-4"
             />
-            <button className="bg-green-500 p-2 hover:opacity-75  flex justify-center text-white rounded">
+            <button className="bg-green-500 p-2   flex justify-center text-white rounded">
               <input type="submit" value="Send" />
             </button>
           </form>
