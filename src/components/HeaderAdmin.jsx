@@ -3,7 +3,7 @@ import { FaSearch, FaRegBell } from "react-icons/fa";
 import { Popover, PopoverButton } from "@headlessui/react";
 import { Menu, MenuButton } from "@headlessui/react";
 
-const Header = () => {
+const HeaderAdmin = () => {
   const profile = "lolo.png";
   return (
     <div className="bg-white h-16 w-full flex justify-between px-4 border-b border-gray-200">
@@ -42,4 +42,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderAdmin;

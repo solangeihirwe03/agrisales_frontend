@@ -6,7 +6,7 @@ import { HiUsers } from "react-icons/hi";
 
 const DashboardStatGrid = () => {
   return (
-    <div className="flex gap-4 py-4">
+    <div className="flex gap-4 p-6 w-[80vw]">
       <BoxWrapper>
         <div className="rounded-full h-12 w-12 flex items-center justify-center bg-[#3b9b3e]">
           <IoBagHandle className="text-2xl text-white" />
@@ -76,7 +76,7 @@ export default DashboardStatGrid;
 
 function BoxWrapper({ children }) {
   return (
-    <div className="bg-white rounded-xl p-4 flex-1 border border-gray-200 flex items-center">
+    <div className="bg-white rounded-xl p-16 flex-1 border border-gray-200 flex items-center">
       {children}
     </div>
   );
