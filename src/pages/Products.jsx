@@ -4,7 +4,8 @@ import axios from "axios";
 import { MdEdit, MdDelete } from "react-icons/md";
 
 const Products = () => {
-    const [products, setProduct] = useState([])
+    const [products, setProduct] = useState([]);
+    let index = 1;
     const FetchingData = async()=>{
         await axios({
             method: "GET",
@@ -31,15 +32,18 @@ const Products = () => {
         }catch(error){
 
         }
-
+        
     }
+    const handleDelete = (id) => {
+      console.log(id);
+    };
   return (
     <div className="bg-white px-4 pt-3 pb-4 rounded-sm border border-gray-200 flex-1">
       <strong>Products</strong>
       <div className="mt-3">
         <table className=" w-full text-gray-700 h-[50vh]">
-          <thead className="bg-black text-white">
-            <tr>
+          <thead className="bg-black text-white border-2">
+            <tr className="p-9">
               <td>Produdt Id</td>
               <td>Product Name</td>
               <td>Price</td>
@@ -50,9 +54,9 @@ const Products = () => {
 
           <tbody className="border-2">
             {products.map((product) => (
-              <tr key={product.id} className=" p-9 border">
+              <tr key={index} className=" p-9 border">
                 <td>
-                  <Link to={`/products/${product.id}`}>#1</Link>
+                  <Link to={`/products/${product.id}`} className="font-semibold text-xl">{index++}</Link>
                 </td>
                 <td>
                   <Link to={`/products/${product.productName}`}>
@@ -66,7 +70,7 @@ const Products = () => {
                     <MdEdit fontSize={26} className="text-[blue]" />
                   </Link>
                   <span>
-                    <Link to={`/delete/:id`}>
+                    <Link onClick={()=>handleDelete(product.id)}>
                       <MdDelete fontSize={25} className="text-[red]" />
                     </Link>
                   </span>

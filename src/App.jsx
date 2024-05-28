@@ -19,6 +19,7 @@ import Admin from "./pages/Admin";
 import Products from "./pages/Products";
 import Update from "./pages/Update";
 import Delete from "./pages/Delete";
+import AdminLayout from "./pages/AdminLayout";
 function App() {
   return (
     <>
@@ -40,13 +41,14 @@ function App() {
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/Footer" element={<Footer />} />
             <Route path="/learnmore" element={<LearnMore />} />
-           <Route path="/shop" element={<Shop />} />
-           <Route path="/admin" element={<Admin/>}/>
-           <Route path="/products" element={<Products/>}/>
-           <Route path='/update/:id' element={<Update/>}/>
-           <Route path="/delete/:id" element={<Delete/>}/>
+            <Route path="/shop" element={<Shop />} />
           </Route>
-           
+          <Route element={<AdminLayout/>}>
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/update/:id" element={<Update />} />
+            <Route path="/delete/:id" element={<Delete />} />
+          </Route>
         </Routes>
       </Router>
     </>
