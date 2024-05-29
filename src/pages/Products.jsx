@@ -28,7 +28,7 @@ const Products = () => {
 
         const updatedProduct = products;
         try{
-            const response = await axios.put(`https://agri-sales-backend-7.onrender.com/api/agri-sales/products/update/${products.id}`)
+          const response = await axios.put(`https://agri-sales-backend-7.onrender.com/api/agri-sales/products/update/${products.id}`)
         }catch(error){
 
         }
@@ -39,7 +39,15 @@ const Products = () => {
     };
   return (
     <div className="bg-white px-4 pt-3 pb-4 rounded-sm border border-gray-200 flex-1">
-      <strong>Products</strong>
+      <div className="flex justify-between py-6 text-lg">
+        <strong className="font-semibold">Products</strong>
+        <Link
+          to={"/addproduct"}
+          className="bg-[#45AB49] py-2.5 px-4 rounded-md font-semibold text-white"
+        >
+          Add Product
+        </Link>
+      </div>
       <div className="mt-3">
         <table className=" w-full text-gray-700 h-[50vh]">
           <thead className="bg-black text-white border-2">
@@ -56,7 +64,12 @@ const Products = () => {
             {products.map((product) => (
               <tr key={index} className=" p-9 border">
                 <td>
-                  <Link to={`/products/${product.id}`} className="font-semibold text-xl">{index++}</Link>
+                  <Link
+                    to={`/products/${product.id}`}
+                    className="font-semibold text-xl"
+                  >
+                    {index++}
+                  </Link>
                 </td>
                 <td>
                   <Link to={`/products/${product.productName}`}>
@@ -70,7 +83,7 @@ const Products = () => {
                     <MdEdit fontSize={26} className="text-[blue]" />
                   </Link>
                   <span>
-                    <Link onClick={()=>handleDelete(product.id)}>
+                    <Link onClick={() => handleDelete(product.id)}>
                       <MdDelete fontSize={25} className="text-[red]" />
                     </Link>
                   </span>
