@@ -1,11 +1,11 @@
 import React from 'react'
 
-const LearnMore = () => {
+function Delete() {
   return (
     <div>
-      
+      Delete
     </div>
   )
 }
 
-export default LearnMore
+export default Delete
