@@ -5,7 +5,6 @@ import Layout from "./pages/Layout";
 import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
 import Search from "./pages/Search";
-import LearnMore from "./pages/LearnMore";
 import Forgot from "./pages/Forgot";
 import Profile from "./pages/Profile";
 import Otpinput from "./pages/Otpinput";
@@ -20,6 +19,9 @@ import Products from "./pages/Products";
 import Update from "./pages/Update";
 import Delete from "./pages/Delete";
 import AdminLayout from "./pages/AdminLayout";
+import AddProduct from "./pages/AddProduct"
+
+
 function App() {
   return (
     <>
@@ -40,7 +42,6 @@ function App() {
             <Route path="/search" element={<Search />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/Footer" element={<Footer />} />
-            <Route path="/learnmore" element={<LearnMore />} />
             <Route path="/shop" element={<Shop />} />
           </Route>
           <Route element={<AdminLayout/>}>
@@ -48,6 +49,7 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/update/:id" element={<Update />} />
             <Route path="/delete/:id" element={<Delete />} />
+            <Route path="/addproduct" element={<AddProduct/>}/>
           </Route>
         </Routes>
       </Router>
