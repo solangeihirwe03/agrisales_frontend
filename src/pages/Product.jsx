@@ -34,7 +34,6 @@ const Product = () => {
 
   const {Cart} = useSelector(state=>state);
 
-
   function handleAddToCart() {
     dispatch(addToCart(products));
   }

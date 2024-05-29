@@ -67,52 +67,53 @@ const Shop = () => {
           </div>
         </div>
         <div>
-          <div className="flex p-24 ">
-            <div className="border-2 hover:border-green-600 transform duration-500 ease-in-out w-[15rem] rounded-lg mt-[2rem] ml-[2rem] bg-white text-black  hover:green-600 font-bold h-[13rem]">
+          <div className="flex flex-wrap justify-center px-4 lg:px-0">
+            <div className="border-2 hover:border-green-600 transform duration-500 ease-in-out w-full lg:w-[15rem] rounded-lg mt-4 lg:mt-[2rem] lg:ml-[2rem] bg-white text-black hover:green-600 font-bold h-[13rem] lg:h-auto">
               <div>
                 <img src={shop1} alt="" />
-                <p className="flex justify-center"> Dried Products</p>
+                <p className="flex justify-center">Dried Products</p>
                 <p className="flex justify-center font-normal">9 products</p>
               </div>
             </div>
-            <div className="border-2 hover:border-green-600 transform duration-500 ease-in-out w-[15rem] rounded-lg mt-[2rem] ml-[2rem] bg-white text-black  hover:green-600 font-bold h-[13rem]">
+            <div className="border-2 hover:border-green-600 transform duration-500 ease-in-out w-full lg:w-[15rem] rounded-lg mt-4 lg:mt-[2rem] lg:ml-[2rem] bg-white text-black hover:green-600 font-bold h-[13rem] lg:h-auto">
               <div>
                 <img src={shop2} alt="" />
-                <p className="flex justify-center"> Fresh Meal</p>
+                <p className="flex justify-center">Fresh Meal</p>
                 <p className="flex justify-center font-normal">4 products</p>
               </div>
             </div>
-            <div className="border-2 hover:border-green-600 transform duration-500 ease-in-out w-[15rem] rounded-lg mt-[2rem] ml-[2rem] bg-white text-black hover:green-600 font-bold h-[13rem]">
+            <div className="border-2 hover:border-green-600 transform duration-500 ease-in-out w-full lg:w-[15rem] rounded-lg mt-4 lg:mt-[2rem] lg:ml-[2rem] bg-white text-black hover:green-600 font-bold h-[13rem] lg:h-auto">
               <div>
                 <img src={shop3} alt="" />
-                <p className="flex justify-center"> Juice</p>
+                <p className="flex justify-center">Juice</p>
                 <p className="flex justify-center font-normal">9 products</p>
               </div>
             </div>
-            <div className="border-2 hover:border-green-600 transform duration-500 ease-in-out w-[15rem] rounded-lg mt-[2rem] ml-[2rem] bg-white text-black hover:green-600 font-bold h-[13rem]">
+            <div className="border-2 hover:border-green-600 transform duration-500 ease-in-out w-full lg:w-[15rem] rounded-lg mt-4 lg:mt-[2rem] lg:ml-[2rem] bg-white text-black hover:green-600 font-bold h-[13rem] lg:h-auto">
               <div>
                 <img src={shop4} alt="" />
-                <p className="flex justify-center"> Vegetables</p>
+                <p className="flex justify-center">Vegetables</p>
                 <p className="flex justify-center font-normal">3 products</p>
               </div>
             </div>
-            <div className="border-2 hover:border-green-600 transform duration-500 ease-in-out w-[15rem] rounded-lg mt-[2rem] ml-[2rem] bg-white text-black  hover:green-600 font-bold h-[13rem]">
+            <div className="border-2 hover:border-green-600 transform duration-500 ease-in-out w-full lg:w-[15rem] rounded-lg mt-4 lg:mt-[2rem] lg:ml-[2rem] bg-white text-black hover:green-600 font-bold h-[13rem] lg:h-auto">
               <div>
                 <img src={shop5} alt="" />
-                <p className="flex justify-center"> Beverages</p>
+                <p className="flex justify-center">Beverages</p>
                 <p className="flex justify-center font-normal">2 products</p>
               </div>
             </div>
           </div>
         </div>
-        <div>
-          <p className="font-urbanist font-bold flex justify-center mb-4 text-2xl ">
-            Unearth the toptier
+        <div className="text-center md:text-left lg:flex p-12 lg:justify-center lg:items-center">
+          <p className="font-urbanist font-bold mb-2 text-2xl lg:text-3xl xl:text-4xl">
+            Unearth the top-tier
           </p>
-          <p className=" font-urbanist font-bold flex justify-center text-2xl">
-            Organic Products from our specilaized Farmers
+          <p className="font-urbanist font-bold text-2xl lg:text-3xl xl:text-4xl">
+            Organic Products from our specialized Farmers
           </p>
         </div>
+
         <div>
           <span className="relative flex justify-center">
             <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"></div>

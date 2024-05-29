@@ -82,7 +82,7 @@ const AboutUs = () => {
             height: "80%",
             width: "100%",
           }}
-          className="flex justify-around text-2xl font-bold text-white p-4 md:p-12 my-8 md:my-[8rem]"
+          className="flex justify-around text-2xl font-bold text-white p-4 md:p-12 my-8 md:my-[8rem] sm:gap-4"
         >
           <div>
             <Number n={1500} />

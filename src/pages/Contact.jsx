@@ -44,7 +44,7 @@ const Contact = () => {
       <h1 className="text-[#FF9C00] font-bold my-3 ml-[45rem] -mb-[3rem] text-2xl">
         Contact <span className="animate-pulse ">📞</span> us
       </h1>
-      <div className="w-3/4 mx-auto my-[5rem]  mb-[4rem] flex justify-center">
+      <div className="w-3/4 mx-auto my-[5rem]  mb-[4rem] flex md: flex-wrap justify-center">
         <div
           style={{ backgroundImage: "url('./contact.jpg')" }}
           className="flex flex-col justify-center w-[38rem]  object-cover bg-no-repeat rounded-lg ml-[2rem]"
