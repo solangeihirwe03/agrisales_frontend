@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const AddProduct = () => {
 
@@ -38,20 +39,21 @@ const AddProduct = () => {
   const handleSubmitProduct = async(event)=>{
     event.preventDefault();
     try{
-      const response = await axios.post("https://agri-sales-backend-7.onrender.com/api/agri-sales/products/",{
+      const response = await axios.post("https://agri-sales-backend-7.onrender.com/api/agri-sales/products/addProduct",{
       file,
       productName,
       description,
       price,
-      ProductInStock,
+      quantity,
       category
     })
     if(response){
+      alert("you've successfully added product")
       setFile(""),
       setProductName(""),
       setDescription(""),
       setPrice(0),
-      setProductInStock(0),
+      setQuantity(0),
       setCategory("");
 
     }
@@ -112,8 +114,8 @@ const AddProduct = () => {
             <input
               type="text"
               placeholder="product in stock..."
-              value={ProductInStock}
-              onChange={(e) => setProductInStock(e.target.value)}
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
               className="w-[40vw] shadow-lg bg-white px-4 py-2"
             />
             <input
