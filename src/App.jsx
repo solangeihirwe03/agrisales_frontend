@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Layout from "./pages/Layout";
@@ -19,7 +19,8 @@ import Products from "./pages/Products";
 import Update from "./pages/Update";
 import Delete from "./pages/Delete";
 import AdminLayout from "./pages/AdminLayout";
-import AddProduct from "./pages/AddProduct"
+import AddProduct from "./pages/AddProduct";
+import Notfound from './pages/Notfound'
 
 
 function App() {
@@ -44,13 +45,14 @@ function App() {
             <Route path="/Footer" element={<Footer />} />
             <Route path="/shop" element={<Shop />} />
           </Route>
-          <Route element={<AdminLayout/>}>
+          <Route element={<AdminLayout />}>
             <Route path="/admin" element={<Admin />} />
             <Route path="/products" element={<Products />} />
             <Route path="/update/:id" element={<Update />} />
             <Route path="/delete/:id" element={<Delete />} />
-            <Route path="/addproduct" element={<AddProduct/>}/>
+            <Route path="/addproduct" element={<AddProduct />} />
           </Route>
+          <Route path="*" element={<Notfound />} />
         </Routes>
       </Router>
     </>

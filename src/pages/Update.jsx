@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 
 function Update() {
 
-    // const {id} = useParams();
+    const {id} = useParams();
 
-    // useEffect(()=>{
-    //     axios.get()
-    // })
+    useEffect(()=>{
+        axios.get()
+    })
   return (
     <div className="w-full h-[80vh] flex justify-center items-center">
       <form
