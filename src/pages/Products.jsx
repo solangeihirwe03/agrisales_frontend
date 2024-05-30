@@ -30,7 +30,7 @@ const Products = () => {
         try{
           const response = await axios.put(`https://agri-sales-backend-7.onrender.com/api/agri-sales/products/update/${products.id}`)
         }catch(error){
-
+          console.log(error)
         }
         
     }
