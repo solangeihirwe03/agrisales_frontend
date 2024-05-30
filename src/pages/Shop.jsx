@@ -16,28 +16,29 @@ import apples from "../../public/apples.png";
 import banana from "../../public/banana.jpg";
 import ReactStars from "react-rating-stars-component";
 import { FaCartShopping } from "react-icons/fa6";
+import StarRating from "./StarRating";
 
 const Shop = () => {
   const [harvests, setHarvest] = useState([]);
 
-  
-const handleFetch = async()=>{
-  await axios({
-    method: "GET",
-    url: "https://agri-sales-backend-7.onrender.com/api/agri-sales/products/productList",
-    
-  }).then((response)=>{
-    console.log(response);
-    setHarvest(response.data.getProduct);
-  }).catch((error)=>{
-    console.log(error);
-  })
-}
+  const handleFetch = async () => {
+    await axios({
+      method: "GET",
+      url: "https://agri-sales-backend.onrender.com/api/agri-sales/products/productList",
+    })
+      .then((response) => {
+        console.log(response);
+        setHarvest(response.data.getProduct);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-useEffect(()=>{
-  handleFetch();
-}, [])
- 
+  useEffect(() => {
+    handleFetch();
+  }, []);
+
   return (
     <>
       <div className="flex flex-col">
@@ -123,17 +124,33 @@ useEffect(()=>{
           </span>
         </div>
 
-        <div className="flex flex-wrap gap-4 justify-center p-4">
+        <div className="flex flex-wrap gap-4 justify-center p-24 space-x-4  items-center font-urbanist">
           {harvests.map((harvest) => (
-            <div key={harvest.id} className="flex flex-wrap w-[22%]">
+            <div
+              key={harvest.id}
+              className="flex flex-wrap w-[22%]  rounded-lg p-4 shadow-sm shadow-indigo-100 justify-center"
+            >
               <img
                 src={harvest.image.url}
-                width={400} height={400}
+                width={400}
+                height={400}
+                className="h-56 w-full rounded-md object-cover  transition-transform duration-300 transform hover:scale-110"
               />
-              <p>{harvest.productName}</p>
-              <p>{harvest.description}</p>
-              <p>${harvest.price}</p>
-              <p>{harvest.productInstock}</p>
+              <div className="flex flex-col justify-center gap-2 items-center py-5 pl-8 text-xl">
+                <StarRating className="flex" />
+                <p className="font-bold hover:text-[#45ab49]">
+                  {harvest.productName}
+                </p>
+                <p className=" font-semibold text-[#45ab49] text-sm flex gap-6 ">
+                  ${harvest.price}
+                  <div className="flex ">
+                    <a href="/Login">
+                      <FaCartShopping className="text-black" />
+                    </a>
+                  </div>
+                </p>
+                <p className="">{harvest.productInstock}</p>
+              </div>
             </div>
           ))}
           {/* {/* <a

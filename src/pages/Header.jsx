@@ -127,7 +127,7 @@ const Header = () => {
           <li>
             <button
               className="md:flex  py-2 px-2 bg-[#45AB49] text-white font-medium rounded "
-              onClick={toggleMenu}
+              
             >
               <a href="/Login" className="flex items-center px-4 py-1">
                 Login
