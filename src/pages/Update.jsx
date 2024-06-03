@@ -1,13 +1,17 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
 
 function Update() {
 
     const {id} = useParams();
 
     useEffect(()=>{
-        axios.get()
-    })
+        axios.get(`https://agri-sales-backend-7.onrender.com/api/agri-sales/products/productById/${id}`)
+        .then(res=>console.log(res))
+        .catch(err=>console.log(err))
+    },[id]);
   return (
     <div className="w-full h-[80vh] flex justify-center items-center">
       <form

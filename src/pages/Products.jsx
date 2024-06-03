@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { MdEdit, MdDelete } from "react-icons/md";
+import Update from "./Update";
 
 const Products = () => {
     const [products, setProduct] = useState([]);
@@ -21,22 +22,12 @@ const Products = () => {
     }
     useEffect(()=>{
         FetchingData();
+        Update()
     },[])
 
-    const HandleUpdate = async(e)=>{
-        e.preventDefault();
-
-        const updatedProduct = products;
-        try{
-          const response = await axios.put(`https://agri-sales-backend-7.onrender.com/api/agri-sales/products/update/${products.id}`)
-        }catch(error){
-          console.log(error)
-        }
-        
-    }
-    const handleDelete = (id) => {
-      console.log(id);
-    };
+    // const handleDelete = (id) => {
+    //   console.log(id);
+    // };
   return (
     <div className="bg-white px-4 pt-3 pb-4 rounded-sm border border-gray-200 flex-1">
       <div className="flex justify-between py-6 text-lg">
@@ -79,7 +70,7 @@ const Products = () => {
                 <td>{product.price}</td>
                 <td>{product.category}</td>
                 <td className="flex">
-                  <Link to={`/update/:id`}>
+                  <Link to={`/update/${product.id}`}>
                     <MdEdit fontSize={26} className="text-[blue]" />
                   </Link>
                   <span>

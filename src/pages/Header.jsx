@@ -7,27 +7,27 @@ const Menu = ({ isOpen, toggleMenu }) => {
   return (
     <ul
       id="mobileNav"
-      className={`absolute flex flex-col space-y-2 bg-white text-black top-12 transition duration-500 left-0 w-full items-center py-4 text-xl hover:text-[#45AB49] text-bold ${
+      className={`absolute flex flex-col space-y-2 bg-white text-black top-12 transition duration-500 left-0 w-full items-center py-4 text-xl text-bold ${
         isOpen ? "block" : "hidden"
       }`}
     >
-      <li className="flex justify-center w-full border-b border-gray-300">
+      <li className="flex justify-center w-full border-b border-gray-300 hover:text-[#45AB49]">
         <a href="/" className="flex items-center py-2 px-4 ">
           Home
         </a>
       </li>
-      <li className="flex justify-center w-full border-b border-gray-300">
+      <li className="flex justify-center w-full border-b border-gray-300 hover:text-[#45AB49]">
         <a href="/AboutUs" className=" flex items-center py-2 px-4 ">
           About Us
         </a>
       </li>
 
-      <li className="flex justify-center w-full border-b border-gray-300">
+      <li className="flex justify-center w-full border-b border-gray-300 hover:text-[#45AB49]">
         <a href="/Shop" className="flex items-center py-2 px-4">
           Shop
         </a>
       </li>
-      <li className="flex justify-center w-full border-b border-gray-300">
+      <li className="flex justify-center w-full border-b border-gray-300 hover:text-[#45AB49]">
         <a href="/Contact" className="flex items-center py-2 px-4">
           Contact Us
         </a>
