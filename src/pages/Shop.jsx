@@ -1,49 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import shop from "../../public/shop.jpg";
 import shop1 from "../../public/shop1.png";
 import shop2 from "../../public/shop2.png";
 import shop3 from "../../public/shop3.png";
 import shop4 from "../../public/shop4.png";
-import shop5 from "../../public/shop5.png";
 import axios from "axios";
-import s1 from "../../public/s1.png";
-import s2 from "../../public/s2.png";
-import s3 from "../../public/s3.png";
-import s4 from "../../public/s4.png";
-import s5 from "../../public/s5.png";
-import eggs from "../../public/eggs.jpg";
-import apples from "../../public/apples.png";
-import banana from "../../public/banana.jpg";
-import ReactStars from "react-rating-stars-component";
-import { FaCartShopping } from "react-icons/fa6";
+import StarRating from "./StarRating";
+import { CartContext } from "../features/ContextProvider";
 
 const Shop = () => {
   const [harvests, setHarvest] = useState([]);
+  const { dispatch } = useContext(CartContext)
 
-  
-const handleFetch = async()=>{
-  await axios({
-    method: "GET",
-    url: "https://agri-sales-backend-7.onrender.com/api/agri-sales/products/productList",
-    
-  }).then((response)=>{
-    console.log(response);
-    setHarvest(response.data.getProduct);
-  }).catch((error)=>{
-    console.log(error);
-  })
-}
+  const handleFetch = async () => {
+    await axios({
+      method: "GET",
+      url: "https://agri-sales-backend.onrender.com/api/agri-sales/products/productList",
+    })
+      .then((response) => {
+        console.log(response);
+        setHarvest(response.data.getProduct);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-useEffect(()=>{
-  handleFetch();
-}, [])
- 
+  useEffect(() => {
+    handleFetch();
+  }, []);
+
   return (
     <>
       <div className="flex flex-col">
         <div>
-          <div>
-            <div
+          <div className="relative">
+          <div
               style={{
                 backgroundImage: `url(${shop})`,
                 backgroundRepeat: "no-repeat",
@@ -53,16 +45,20 @@ useEffect(()=>{
                 left: 0,
                 height: "80%",
                 width: "100%",
+                backgroundColor: "rgba(0, 0, 0, 0.1)",
+                zIndex: -1
               }}
               className=" border border-blue-950 pb-56"
             >
               <div className="mt-20">
-                <h3 className="flex justify-center  text-white font-bold text-xl">
+                <h3 className="flex justify-center  text-white font-bold text-xl z-60">
                   SHOP GRID
                 </h3>
                 <h3 className="flex justify-center"></h3>
               </div>
             </div>
+            <div className="bg-black opacity-75 absolute top-0 left-0 right-0 bottom-0 z-1"></div>
+            
           </div>
         </div>
         <div>
@@ -72,13 +68,6 @@ useEffect(()=>{
                 <img src={shop1} alt="" />
                 <p className="flex justify-center">Dried Products</p>
                 <p className="flex justify-center font-normal">9 products</p>
-              </div>
-            </div>
-            <div className="border-2 hover:border-green-600 transform duration-500 ease-in-out w-full lg:w-[15rem] rounded-lg mt-4 lg:mt-[2rem] lg:ml-[2rem] bg-white text-black hover:green-600 font-bold h-[13rem] lg:h-auto">
-              <div>
-                <img src={shop2} alt="" />
-                <p className="flex justify-center">Fresh Meal</p>
-                <p className="flex justify-center font-normal">4 products</p>
               </div>
             </div>
             <div className="border-2 hover:border-green-600 transform duration-500 ease-in-out w-full lg:w-[15rem] rounded-lg mt-4 lg:mt-[2rem] lg:ml-[2rem] bg-white text-black hover:green-600 font-bold h-[13rem] lg:h-auto">
@@ -97,7 +86,7 @@ useEffect(()=>{
             </div>
             <div className="border-2 hover:border-green-600 transform duration-500 ease-in-out w-full lg:w-[15rem] rounded-lg mt-4 lg:mt-[2rem] lg:ml-[2rem] bg-white text-black hover:green-600 font-bold h-[13rem] lg:h-auto">
               <div>
-                <img src={shop5} alt="" />
+                <img src={shop2} alt="" />
                 <p className="flex justify-center">Beverages</p>
                 <p className="flex justify-center font-normal">2 products</p>
               </div>
@@ -123,353 +112,31 @@ useEffect(()=>{
           </span>
         </div>
 
-        <div className="flex flex-wrap gap-4 justify-center p-4">
+        <div className="flex flex-wrap gap-4 justify-center p-24 space-x-4  items-center font-urbanist">
           {harvests.map((harvest) => (
-            <div key={harvest.id} className="flex flex-wrap w-[22%]">
+            <div
+              key={harvest.id}
+              className="flex flex-wrap w-[22%]  rounded-lg p-4 shadow-sm shadow-indigo-100 justify-center"
+            >
               <img
                 src={harvest.image.url}
-                width={400} height={400}
+                width={400}
+                height={400}
+                className="h-56 w-full rounded-md object-cover  transition-transform duration-300 transform hover:scale-110"
               />
-              <p>{harvest.productName}</p>
-              <p>{harvest.description}</p>
-              <p>${harvest.price}</p>
-              <p>{harvest.productInstock}</p>
+              <div className="flex flex-col justify-center gap-2 items-center py-5 pl-8 text-xl">
+                <StarRating className="flex" />
+                <div className="flex gap-10">
+                  <p className="font-bold hover:text-[#45ab49]">
+                    {harvest.productName}
+                  </p>
+                  <p className="font-semibold text-[#45ab49] text-md">${harvest.price}</p>
+                </div>
+                <button onClick={()=>dispatch({type: "Add", harvest: harvest})} className=" font-semibold bg-[#45ab49]  px-4 py-1.5 text-sm text-white flex gap-6 mt-4  rounded-md">Add to cart</button>
+                <p className="">{harvest.productInstock}</p>
+              </div>
             </div>
           ))}
-          {/* {/* <a
-            href="#"
-            className="block rounded-lg p-4 shadow-sm shadow-indigo-100"
-          >
-            <img
-              alt=""
-              src={s1}
-              className="h-56 w-full rounded-md object-cover  transition-transform duration-300 transform hover:scale-110"
-            />
-
-            <div className="mt-2">
-              <dl className="">
-                <div className="flex justify-center">
-                  <ReactStars
-                    count={5}
-                    value={rating}
-                    size={24}
-                    activeColor="#FF890B"
-                    edit={false}
-                  />
-                </div>
-                <div className="flex justify-center">
-                  <dd className="font-medium">Carrots</dd>
-                </div>
-                <div className="flex justify-center">
-                  <dt className="sr-only">Price</dt>
-
-                  <dd className="text-sm font-semibold text-green-500">
-                    $20 per(kg)
-                  </dd>
-                </div>
-                <div className="flex justify-end ">
-                  <a href="/Login">
-                    <FaCartShopping />
-                  </a>
-                </div>
-              </dl>
-
-              <div className="mt-6 flex items-center gap-8 text-xs"></div>
-            </div>
-          </a>
-          <a
-            href="#"
-            className="block rounded-lg p-4 shadow-sm shadow-indigo-100"
-          >
-            <img
-              alt=""
-              src={s2}
-              className="h-56 w-full rounded-md object-cover  transition-transform duration-300 transform hover:scale-110"
-            />
-
-            <div className="mt-2">
-              <div className="flex justify-center">
-                <ReactStars
-                  count={5}
-                  value={rating}
-                  size={24}
-                  activeColor="#FF890B"
-                  edit={false}
-                />
-              </div>
-              <div className=" flex justify-center">
-                <dd className="font-medium"> Fresh Gooseberry</dd>
-              </div>
-              <dl>
-                <div className="flex justify-center">
-                  <dt className="sr-only">Price</dt>
-
-                  <dd className="text-sm font-semibold text-green-500">
-                    $24 per kg
-                  </dd>
-                </div>
-                <div className="flex justify-end ">
-                  <a href="/Login">
-                    <FaCartShopping />
-                  </a>
-                </div>
-              </dl>
-
-              <div className="mt-6 flex items-center gap-8 text-xs"></div>
-            </div>
-          </a>
-          <a
-            href="#"
-            className="block rounded-lg p-4 shadow-sm shadow-indigo-100"
-          >
-            <img
-              alt=""
-              src={s3}
-              className="h-56 w-full rounded-md object-cover  transition-transform duration-300 transform hover:scale-110"
-            />
-
-            <div className="mt-2">
-              <dl>
-                <div className="flex justify-center">
-                  <ReactStars
-                    count={5}
-                    value={rating}
-                    size={24}
-                    activeColor="#FF890B"
-                    edit={false}
-                  />
-                </div>
-                <div className="flex justify-center">
-                  <dd className="font-medium">Organic Brocoli</dd>
-                </div>
-                <div className="flex justify-center">
-                  <dt className="sr-only">Price</dt>
-
-                  <dd className="text-sm font-semibold text-green-500">
-                    $23 per kg
-                  </dd>
-                </div>
-                <div className="flex justify-end ">
-                  <a href="/Login">
-                    <FaCartShopping />
-                  </a>
-                </div>
-              </dl>
-
-              <div className="mt-6 flex items-center gap-8 text-xs"></div>
-            </div>
-          </a>
-          <a
-            href="#"
-            className="block rounded-lg p-4 shadow-sm shadow-indigo-100"
-          >
-            <img
-              alt=""
-              src={s4}
-              className="h-56 w-full rounded-md object-cover  transition-transform duration-300 transform hover:scale-110"
-            />
-
-            <div className="mt-2">
-              <dl>
-                <div className="flex justify-center">
-                  <ReactStars
-                    count={5}
-                    value={rating}
-                    size={24}
-                    activeColor="#FF890B"
-                    edit={false}
-                  />
-                </div>
-                <div className="flex justify-center">
-                  <dd className="font-medium">Citrus</dd>
-                </div>
-                <div className="flex justify-center">
-                  <dt className="sr-only">Price</dt>
-
-                  <dd className="text-sm font-semibold text-green-500">
-                    $26 per kg
-                  </dd>
-                </div>
-                <div className="flex justify-end ">
-                  <a href="/Login">
-                    <FaCartShopping />
-                  </a>
-                </div>
-              </dl>
-
-              <div className="mt-6 flex items-center gap-8 text-xs"></div>
-            </div>
-          </a>
-          <a
-            href="#"
-            className="block rounded-lg p-4 shadow-sm shadow-indigo-100"
-          >
-            <img
-              alt=""
-              src={s5}
-              className="h-56 w-full rounded-md object-cover  transition-transform duration-300 transform hover:scale-110"
-            />
-
-            <div className="mt-2">
-              <dl>
-                <div className="flex justify-center">
-                  <ReactStars
-                    count={5}
-                    value={rating}
-                    size={24}
-                    activeColor="#FF890B"
-                    edit={false}
-                  />
-                </div>
-                <div className="flex justify-center">
-                  <dd className="font-medium">Brown Onions</dd>
-                </div>
-                <div className="flex justify-center">
-                  <dt className="sr-only">Price</dt>
-
-                  <dd className="text-sm font-semibold text-green-500">
-                    $24 per kg
-                  </dd>
-                </div>
-                <div className="flex justify-end ">
-                  <a href="/Login">
-                    <FaCartShopping />
-                  </a>
-                </div>
-              </dl>
-
-              <div className="mt-6 flex items-center gap-8 text-xs"></div>
-            </div>
-          </a>
-          <a
-            href="#"
-            className="block rounded-lg p-4 shadow-sm shadow-indigo-100"
-          >
-            <img
-              alt=""
-              src={eggs}
-              className="h-56 w-full rounded-md object-cover  transition-transform duration-300 transform hover:scale-110"
-            />
-
-            <div className="mt-2">
-              <dl>
-                <div className="flex justify-center">
-                  <ReactStars
-                    count={5}
-                    value={rating}
-                    size={24}
-                    activeColor="#FF890B"
-                    edit={false}
-                  />
-                </div>
-                <div className="flex justify-center">
-                  <dd className="font-medium">Eggs</dd>
-                </div>
-                <div className="flex justify-center">
-                  <dt className="sr-only">Price</dt>
-
-                  <dd className="text-sm font-semibold text-green-500">
-                    $240 per kg
-                  </dd>
-                </div>
-                <div className="flex justify-end ">
-                  <a href="/Login">
-                    <FaCartShopping />
-                  </a>
-                </div>
-              </dl>
-
-              <div className="mt-6 flex items-center gap-8 text-xs"></div>
-            </div>
-          </a>
-
-          <a
-            href="#"
-            className="block rounded-lg p-4 shadow-sm shadow-indigo-100"
-          >
-            <img
-              alt=""
-              src={apples}
-              className="h-56 w-full rounded-md object-cover  transition-transform duration-300 transform hover:scale-110"
-            />
-
-            <div className="mt-2">
-              <dl>
-                <div className="flex justify-center">
-                  <ReactStars
-                    count={5}
-                    value={rating}
-                    size={24}
-                    activeColor="#FF890B"
-                    edit={false}
-                  />
-                </div>{" "}
-                <div className="flex justify-center">
-                  <dt className="sr-only">Address</dt>
-
-                  <dd className="font-medium">Apples</dd>
-                </div>
-                <div className="flex justify-center">
-                  <dt className="sr-only">Price</dt>
-
-                  <dd className="text-sm font-semibold text-green-500">
-                    $24 per kg
-                  </dd>
-                </div>
-                <div className="flex justify-end ">
-                  <a href="/Login">
-                    <FaCartShopping />
-                  </a>
-                </div>
-              </dl>
-
-              <div className="mt-6 flex items-center gap-8 text-xs"></div>
-            </div>
-          </a>
-
-          <a
-            href="#"
-            className="block rounded-lg p-4 shadow-sm shadow-indigo-100"
-          >
-            <img
-              alt=""
-              src={banana}
-              className="h-56 w-full rounded-md object-cover transition-transform duration-300 transform hover:scale-110"
-            />
-
-            <div className="mt-2">
-              <dl>
-                <div className="flex justify-center">
-                  <ReactStars
-                    count={5}
-                    value={rating}
-                    size={24}
-                    activeColor="#FF890B"
-                    edit={false}
-                  />
-                </div>
-                <div className="flex justify-center">
-                  <dt className="sr-only">Address</dt>
-
-                  <dd className="font-medium">Banana</dd>
-                </div>
-                <div className="flex justify-center">
-                  <dt className="sr-only">Price</dt>
-
-                  <dd className="text-sm font-semibold text-green-500">
-                    $19 per kg
-                  </dd>
-                </div>
-                <div className="flex justify-end ">
-                  <a href="/Login">
-                    <FaCartShopping />
-                  </a> 
-                </div>
-              </dl>
-
-              <div className="mt-6 flex items-center gap-8 text-xs"></div>
-            </div>
-          </a> */}
         </div>
       </div>
     </>

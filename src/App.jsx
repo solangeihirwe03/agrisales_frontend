@@ -9,7 +9,6 @@ import Forgot from "./pages/Forgot";
 import Profile from "./pages/Profile";
 import Otpinput from "./pages/Otpinput";
 import Product from "./pages/Product";
-import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import Header from "./pages/Header";
 import Footer from "./pages/Footer";
@@ -20,7 +19,8 @@ import Update from "./pages/Update";
 import Delete from "./pages/Delete";
 import AdminLayout from "./pages/AdminLayout";
 import AddProduct from "./pages/AddProduct";
-import Notfound from './pages/Notfound'
+import Notfound from './pages/Notfound';
+import Cart from './pages/Cart.jsx'
 
 
 function App() {

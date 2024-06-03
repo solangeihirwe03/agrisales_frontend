@@ -1,35 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 
-function Update() {
+async function Update() {
+  // const [post, setPost] = useState(null)
 
-    const {id} = useParams();
+  // const { id } = useParams()
 
-    useEffect(()=>{
-        axios.get(`https://agri-sales-backend-7.onrender.com/api/agri-sales/products/productById/${id}`)
-        .then(res=>console.log(res))
-        .catch(err=>console.log(err))
-    },[id]);
+  // const updateProduct = () => {
+  //   const product = {
+  //     image,
+  //     productName,
+  //     description,
+  //     price,
+  //     productInStock,
+  //     category
+  //   }
+  //   axios.put(`https://agri-sales-backend-7.onrender.com/api/agri-sales/products/updateProduct/${id}`, product)
+  //     .then(res => {
+  //       setPost(res.data)
+  //     })
+  // }
+  // if (!post) {
+  //   return "No post"
+  // }
+
+
   return (
     <div className="w-full h-[80vh] flex justify-center items-center">
       <form
-        action=""
         className="w-[60vw] h-[50vh] flex flex-col gap-6 bg-[#45AB49] justify-center items-center p-5 rounded-xl"
       >
         <input
-          type="text"
-          placeholder="Product"
+          type="file"
+          name="file"
+          placeholder="image"
+          // value={product.image}
+          // onChange={(e)=> setPost(e.target.value)}
           className="border-none rounded-md outline-none px-5 py-2 w-full"
         />
         <input
           type="text"
-          placeholder="price"
+          name="productName..."
+          // value={product.productName}
+          // onChange={(e)=> setPost(e.target.value)}
+          placeholder="product name"
           className="border-none rounded-md outline-none px-5 py-2 w-full"
         />
         <input
           type="text"
+          name="productInStock..."
+          // value={product.productInStock}
+          // onChange={(e)=>setPost(e.target.value)}
+          placeholder="product in stock"
+          className="border-none rounded-md outline-none px-5 py-2 w-full"
+        />
+        <input
+          type="text"
+          name="productInStock..."
+          // value={product.category}
+          // onChange={(e)=>setPost(e.target.value)}
           placeholder="product in stock"
           className="border-none rounded-md outline-none px-5 py-2 w-full"
         />

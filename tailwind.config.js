@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         roboto: ["Roboto", "sans - serif"],
         urbanist: ["Urbanist", "sans-serif"],
+        leageSpartan: ["LeageSpartan", "sans-seriff"]
       },
       animation: {
         "hover-from-bottom": "hover-from-bottom 0.5s ease-in-out forwards",

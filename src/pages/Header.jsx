@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { IoPerson } from "react-icons/io5";
 import { FaCartShopping } from "react-icons/fa6";
 import { FiMenu } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import { CartContext } from "../features/ContextProvider";
 
 const Menu = ({ isOpen, toggleMenu }) => {
+  const {cart} = useContext(CartContext);
   return (
     <ul
       id="mobileNav"
-      className={`absolute flex flex-col space-y-2 bg-white text-black top-12 transition duration-500 left-0 w-full items-center py-4 text-xl text-bold ${
-        isOpen ? "block" : "hidden"
-      }`}
+      className={`absolute flex flex-col space-y-2 bg-white text-black top-12 transition duration-500 left-0 w-full items-center py-4 text-xl text-bold ${isOpen ? "block" : "hidden"
+        }`}
     >
       <li className="flex justify-center w-full border-b border-gray-300 hover:text-[#45AB49]">
         <a href="/" className="flex items-center py-2 px-4 ">
@@ -39,9 +41,9 @@ const Menu = ({ isOpen, toggleMenu }) => {
         </a>
       </li>
       <li className="flex justify-center w-full border-b border-gray-300">
-        <a href="/Cart" className="flex items-center py-2 px-4">
-          {<FaCartShopping className="w-[20px]" />}
-        </a>
+        <Link to={'/cart'}>
+          <FaCartShopping className="w-[20px]" />{cart.length}
+        </Link>
       </li>
 
       <li>
@@ -60,6 +62,7 @@ const Menu = ({ isOpen, toggleMenu }) => {
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {cart} = useContext(CartContext);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -116,18 +119,15 @@ const Header = () => {
             </a>
           </li>
           <li>
-            <a
-              href="/Cart"
-              className="flex items-center py-2 px-4 hover:text-[#45ab49]"
-            >
-              {<FaCartShopping className="w-[20px]" />}
-            </a>
+            <Link to={'/cart'} className="flex">
+              <FaCartShopping className="w-[20px]" /><span className="text-[#FF9C00]">{cart.length}</span>
+            </Link>
           </li>
 
           <li>
             <button
               className="md:flex  py-2 px-2 bg-[#45AB49] text-white font-medium rounded "
-              onClick={toggleMenu}
+
             >
               <a href="/Login" className="flex items-center px-4 py-1">
                 Login

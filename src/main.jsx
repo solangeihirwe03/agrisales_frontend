@@ -1,14 +1,13 @@
-import React from "react";
+import React from 'react'
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
+import { ContextProvider } from "./features/ContextProvider.jsx";
 import "./index.css";
-import  {Provider} from "react-redux"
-import Store from "./pages/Store"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <Provider store={Store}>
+  <ContextProvider>
     <React.StrictMode>
       <App />
     </React.StrictMode>
-  </Provider>
+  </ContextProvider>
 );

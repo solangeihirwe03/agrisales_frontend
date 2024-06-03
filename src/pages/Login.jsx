@@ -1,8 +1,33 @@
 import React from 'react'
-import image4 from "../../public/image5.jpeg"
+import {useNavigate, Link} from "react-router-dom"
+import axios from "axios"
+
+
 
 
 const Login = () => {
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const navigate = useNavigate();
+  // const [fetchError, setFetchError] = useState(null);
+  // const [error,setError] = useState({
+  //   email:"",
+  //   password:"",
+  // });
+
+  // const handleEmail = (e) => {
+  //   setEmail(e.target.value);
+  //   setError({...error, email: ""});
+  // };
+
+  // const handlePassword = (e) => {
+  //   setPassword(e.target.value);
+  //   setError({...error, password: ""});
+  // };
+
+  // const loginEndpoints = [
+  // ]
+  
   return (
     <div
       className=" bg-cover bg-center h-screen p-64"

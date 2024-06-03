@@ -5,67 +5,47 @@ import axios from 'axios';
 const AddProduct = () => {
 
   const navigate = useNavigate();
-  const[error, setError] = useState("");
-  const [file,setFile] = useState("");
-  const [productName,setProductName] = useState("");
-  const [description,setDescription] = useState("");
-  const [price,setPrice] = useState(0);
-  const [quantity,setQuantity] = useState(0);
-  const [category,setCategory] = useState("");
+  const [data, setData] = useState([])
+  const [file, setFile] = useState("");
+  const [productName, setProductName] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [category, setCategory] = useState("");
 
-  const validateForm = ()=>{
-    const newErrors = {};
-
-    if (
-      (file === "" || productName === "" || description === "",
-      price === "",
-      quantity === "",
-      category === "")
-    ) {
-      setError("please fill all fields");
-    }
-
-    if(price < 0){
-      newErrors.price = "Price must be greater than 0";
-    }
-    if(quantity < 0){
-      newErrors.quantity = "quantity must be greater than 0"
-    }
-
-    setError(newErrors);
-    return Object.keys(newErrors).length === 0;
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
   }
 
-  const handleSubmitProduct = async(event)=>{
+  const handleSubmitProduct = async (event) => {
     event.preventDefault();
-    try{
-      const response = await axios.post("https://agri-sales-backend-7.onrender.com/api/agri-sales/products/addProduct",{
-      file,
-      productName,
-      description,
-      price,
-      quantity,
-      category
-    })
-    if(response){
-      alert("you've successfully added product")
-      setFile(""),
-      setProductName(""),
-      setDescription(""),
-      setPrice(0),
-      setQuantity(0),
-      setCategory("");
-
+    try {
+      const formData = new FormData(); 
+      formData.append("file", file);
+      formData.append("productName", productName);
+      formData.append("description", description);
+      formData.append("price", price);
+      formData.append("quantity", quantity);
+      formData.append("category", category);
+      const response = await axios.post("https://agri-sales-backend-7.onrender.com/api/agri-sales/products/addProduct", 
+        formData, {
+          headers: {
+            "Content-Type" : "multipart/form-data"
+          }
+        }
+      )
+      if (response.status === 200 || response.status === 201) {
+        console.log("Product successfully added!", response.data);
+        setData([...data, response.data]);  
+        setTimeout(() => {
+          navigate("/products");
+        }, 3000);
+      } else {
+        console.error("Failed to add product:", response.statusText);
+      }
+    } catch (error) {
+      console.log("Error adding product:", error);
     }
-    
-    setTimeout(()=>{
-      navigate('/products')
-    },3000)
-  }catch(err){
-    console.log("internal server error", err)
-  }
-
-
   }
   return (
     <div className="w-[70vw] flex items-center justify-center flex-col py-4 rounded-lg">
@@ -78,16 +58,17 @@ const AddProduct = () => {
         </div>
         <div className="w-[45%]">
           <form
-            onSubmit={handleSubmitProduct}
+            onClick={handleSubmitProduct}
             className="flex flex-col gap-4 w-full items-center px-5"
           >
             <input
               type="file"
               name="file"
               value={file}
-              onChange={(e) => setFile(e.target.value)}
+              onChange={handleFileChange}
               className="w-[40vw] shadow-lg bg-white px-4 py-2"
             />
+            {file && <p>File selected: {file.name}</p>}
             <div className="flex gap-6">
               <input
                 type="text"

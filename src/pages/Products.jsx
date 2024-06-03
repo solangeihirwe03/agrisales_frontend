@@ -13,7 +13,6 @@ const Products = () => {
             url: 'https://agri-sales-backend-7.onrender.com/api/agri-sales/products/productList'
         })
         .then((response)=>{
-            console.log(response.data.getProduct);
             setProduct(response.data.getProduct);
         })
         .catch((error)=>{
@@ -52,29 +51,25 @@ const Products = () => {
           </thead>
 
           <tbody className="border-2">
-            {products.map((product) => (
-              <tr key={index} className=" p-9 border">
+            {products.map((product, i) => (
+              <tr key={i} className=" p-9 border">
                 <td>
-                  <Link
-                    to={`/products/${product.id}`}
-                    className="font-semibold text-xl"
-                  >
                     {index++}
-                  </Link>
                 </td>
                 <td>
-                  <Link to={`/products/${product.productName}`}>
+                  <img src={product.image.url} alt={product.productName} className="w-16 h-16"/>
+                </td>
+                <td>
                     {product.productName}
-                  </Link>
                 </td>
                 <td>{product.price}</td>
                 <td>{product.category}</td>
                 <td className="flex">
-                  <Link to={`/update/${product.id}`}>
+                  <Link to={`/update/${product._id}`}>
                     <MdEdit fontSize={26} className="text-[blue]" />
                   </Link>
                   <span>
-                    <Link onClick={() => handleDelete(product.id)}>
+                    <Link onClick={() => handleDelete(product._id)}>
                       <MdDelete fontSize={25} className="text-[red]" />
                     </Link>
                   </span>
