@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { CartContext } from "../features/ContextProvider"
 import CartProduct from "../components.jsx/CartProduct"
+import { totalItems, totalPrice } from "../features/Cartreducer"
 
 const Cart = () => {
   const {cart} = useContext(CartContext)
@@ -13,8 +14,8 @@ const Cart = () => {
       </div>
       <div className="w-80 h-64 border bg-[#969696] ">
         <div className="p-2 border">Order Details</div>
-        <h5>Total Items: </h5>
-        <h5>Total Price: </h5>
+        <h5>Total Items: {totalItems(cart)}</h5>
+        <h5>Total Price: ${totalPrice(cart)} </h5>
         <p>MOMO pay</p>
         <button>Checkout</button>
       </div>

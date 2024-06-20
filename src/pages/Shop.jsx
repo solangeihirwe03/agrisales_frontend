@@ -132,7 +132,7 @@ const Shop = () => {
                   </p>
                   <p className="font-semibold text-[#45ab49] text-md">${harvest.price}</p>
                 </div>
-                <button onClick={()=>dispatch({type: "Add", harvest: harvest})} className=" font-semibold bg-[#45ab49]  px-4 py-1.5 text-sm text-white flex gap-6 mt-4  rounded-md">Add to cart</button>
+                <button onClick={()=>dispatch({type: "Add", harvest: harvest})} className=" font-semibold bg-[#45ab49]  px-4 py-1.5 text-sm text-white flex gap-6 mt-4  rounded-md hover:bg-black">Add to cart</button>
                 <p className="">{harvest.productInstock}</p>
               </div>
             </div>

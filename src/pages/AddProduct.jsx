@@ -6,46 +6,36 @@ const AddProduct = () => {
 
   const navigate = useNavigate();
   const [data, setData] = useState([])
-  const [file, setFile] = useState("");
-  const [productName, setProductName] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [category, setCategory] = useState("");
+  const [image, setImage]= useState("")
 
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+  const handleImage = (e)=>{
+    console.log(e.target.file)
+    setImage(e.target.files[0])
   }
+  const [productData, setProductData] = useState({
+    productName: "",
+    description: "",
+    price: "",
+    quantity: "",
+    category: ""
+  });
+
+const handleInputs = (e)=>{
+  setProductData(prev=> ({...prev , [e.target.name]: [e.target.value]}))
+}
 
   const handleSubmitProduct = async (event) => {
     event.preventDefault();
-    try {
-      const formData = new FormData(); 
-      formData.append("file", file);
-      formData.append("productName", productName);
-      formData.append("description", description);
-      formData.append("price", price);
-      formData.append("quantity", quantity);
-      formData.append("category", category);
-      const response = await axios.post("https://agri-sales-backend-7.onrender.com/api/agri-sales/products/addProduct", 
-        formData, {
-          headers: {
-            "Content-Type" : "multipart/form-data"
-          }
-        }
-      )
-      if (response.status === 200 || response.status === 201) {
-        console.log("Product successfully added!", response.data);
-        setData([...data, response.data]);  
-        setTimeout(() => {
-          navigate("/products");
-        }, 3000);
-      } else {
-        console.error("Failed to add product:", response.statusText);
-      }
-    } catch (error) {
-      console.log("Error adding product:", error);
-    }
+
+    axios.post("https://agri-sales-backend-7.onrender.com/api/agri-sales/products/addProduct", {
+      productData,
+      image
+    })
+    .then(res=>{
+      console.log(res)
+      navigate('/products')
+  })
+    .catch(err=> console.log(err))
   }
   return (
     <div className="w-[70vw] flex items-center justify-center flex-col py-4 rounded-lg">
@@ -61,49 +51,47 @@ const AddProduct = () => {
             onClick={handleSubmitProduct}
             className="flex flex-col gap-4 w-full items-center px-5"
           >
-            <input
-              type="file"
-              name="file"
-              value={file}
-              onChange={handleFileChange}
-              className="w-[40vw] shadow-lg bg-white px-4 py-2"
+            <input 
+            type="file" 
+            name='image'
+            onChange={handleImage}
+            className="w-[40vw] shadow-lg bg-white px-4 py-2"
             />
-            {file && <p>File selected: {file.name}</p>}
             <div className="flex gap-6">
               <input
                 type="text"
                 placeholder="productName..."
-                value={productName}
-                onChange={(e) => setProductName(e.target.value)}
+                name='productName'
+                onChange={handleInputs}
                 className="w-[19vw] shadow-lg bg-white px-4 py-2"
               />
               <input
                 type="text"
                 placeholder="description..."
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                name='description'
+                onChange={handleInputs}
                 className="w-[19vw] shadow-lg bg-white px-4 py-2"
               />
             </div>
             <input
               type="text"
               placeholder="price..."
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
+              name='price'
+              onChange={handleInputs}
               className="w-[40vw] shadow-lg bg-white px-4 py-2"
             />
             <input
               type="text"
               placeholder="product in stock..."
-              value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
+              name='quantity'
+             onChange={handleInputs}
               className="w-[40vw] shadow-lg bg-white px-4 py-2"
             />
             <input
               type="text"
               placeholder="category..."
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
+              name='category'
+              onChange={handleInputs}
               className="w-[40vw] shadow-lg bg-white px-4 py-2"
             />
             <button

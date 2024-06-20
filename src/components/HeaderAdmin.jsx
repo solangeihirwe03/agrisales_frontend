@@ -2,8 +2,27 @@ import { AiOutlineMessage } from "react-icons/ai";
 import { FaSearch, FaRegBell } from "react-icons/fa";
 import { Popover, PopoverButton } from "@headlessui/react";
 import { Menu, MenuButton } from "@headlessui/react";
+import { useState } from "react";
 
 const HeaderAdmin = () => {
+  const [input, setInput] = useState("");
+
+  const fetchData = (value) => {
+    fetch("https://agri-sales-backend.onrender.com/api/agri-sales/products/productList")
+      .then(response => response.json())
+      .then((json) => {
+        const result = json.filter((product) => {
+          return product && product.productName && product.productName.toLowerCase().includes(value)
+        })
+        console.log(result)
+      })
+  };
+
+  const handleChange = (value) => {
+    setInput(value)
+    fetchData(value)
+  }
+
   const profile = "lolo.png";
   return (
     <div className="bg-white h-16 w-full flex justify-between px-4 border-b border-gray-200">
@@ -15,6 +34,8 @@ const HeaderAdmin = () => {
         <input
           type="text"
           placeholder="search.."
+          value={input}
+          onChange={(e) => handleChange(e.target.value)}
           className="text-sm focus:outline-none active:outline-none h-10 w-[24em] border border-gray-300 m-4 rounded-md px-7"
         />
       </div>

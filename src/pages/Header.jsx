@@ -34,12 +34,6 @@ const Menu = ({ isOpen, toggleMenu }) => {
           Contact Us
         </a>
       </li>
-
-      <li className="flex justify-center w-full border-b border-gray-300">
-        <a href="/Product" className="flex items-center py-2 px-4">
-          {<IoPerson className="w-[20px]" />}
-        </a>
-      </li>
       <li className="flex justify-center w-full border-b border-gray-300">
         <Link to={'/cart'}>
           <FaCartShopping className="w-[20px]" />{cart.length}
@@ -75,7 +69,7 @@ const Header = () => {
           </p>
         </div>
 
-        <ul className="hidden md:flex space-x-4 items-center">
+        <ul className="hidden md:flex space-x-4 text-xl items-center ">
           <li>
             <a
               href="/"
@@ -107,15 +101,6 @@ const Header = () => {
               className="flex items-center py-2 px-4 hover:text-[#45ab49]"
             >
               Contact Us
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/Product"
-              className="flex items-center py-2 px-4 hover:text-[#45ab49]"
-            >
-              {<IoPerson className="w-[20px]" />}
             </a>
           </li>
           <li>
